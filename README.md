@@ -1,1 +1,1 @@
-# We-Yearn-for-the-Mines-unofficial
+# We Yearn for the Mines
