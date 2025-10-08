@@ -1,10 +1,23 @@
+
+using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.Events;
 
-//script from Brackeys //Github
+//script from Brackeys //Github https://github.com/Brackeys/2D-Character-Controller/blob/master/CharacterController2D.cs
 
 public class PlayerController : MonoBehaviour
 {
+    private float horizontal;
+    private bool isWallSliding;
+    private float wallSlidingSpeed = 2f;
+    private bool isWallJumping;
+    private float wallJumpingDirection;
+    private float wallJumpingTime = 0.2f;
+    private float wallJumpingCounter;
+    private float wallJumpingDuration = 0.4f;
+    private Vector2 wallJumpingPower = new Vector2(0f, 16f);
+    [SerializeField] private Transform wallCheck;
+    [SerializeField] private LayerMask wallLayer;
     [SerializeField] private float m_JumpForce = 400f;                          // Amount of force added when the player jumps.
     [Range(0, 1)][SerializeField] private float m_CrouchSpeed = .36f;           // Amount of maxSpeed applied to crouching movement. 1 = 100%
     [Range(0, .3f)][SerializeField] private float m_MovementSmoothing = .05f;   // How much to smooth out the movement
@@ -31,6 +44,15 @@ public class PlayerController : MonoBehaviour
 
     public BoolEvent OnCrouchEvent;
     private bool m_wasCrouching = false;
+    public Animator animator;
+
+    private void Update()
+    {
+        horizontal = Input.GetAxisRaw("Horizontal");
+        WallSlide();
+        WallJump();
+     
+    }
 
     private void Awake()
     {
@@ -114,13 +136,13 @@ public class PlayerController : MonoBehaviour
             m_Rigidbody2D.linearVelocity = Vector3.SmoothDamp(m_Rigidbody2D.linearVelocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
             // If the input is moving the player right and the player is facing left...
-            if (move > 0 && !m_FacingRight)
+            if (move > 0 && !m_FacingRight && !isWallJumping)
             {
                 // ... flip the player.
                 Flip();
             }
             // Otherwise if the input is moving the player left and the player is facing right...
-            else if (move < 0 && m_FacingRight)
+            else if (move < 0 && m_FacingRight && !isWallJumping)
             {
                 // ... flip the player.
                 Flip();
@@ -142,8 +164,66 @@ public class PlayerController : MonoBehaviour
         m_FacingRight = !m_FacingRight;
 
         // Multiply the player's x local scale by -1.
-        Vector3 theScale = transform.localScale;
+        UnityEngine.Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    private bool IsWalled()
+    {
+        return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
+    }
+
+    private void WallSlide()
+    {
+        if (IsWalled() && !m_Grounded && horizontal != 0f)
+        {
+            isWallSliding = true;
+            m_Rigidbody2D.linearVelocity = new Vector2(m_Rigidbody2D.linearVelocityX, Mathf.Clamp(m_Rigidbody2D.linearVelocityY, -wallSlidingSpeed, float.MaxValue));
+            animator.SetBool("IsClinging", true);
+        }
+        else
+        {
+            isWallSliding = false;
+            animator.SetBool("IsClinging", false);
+        }
+    }
+
+    private void WallJump()
+    {
+        if (isWallSliding)
+        {
+            isWallJumping = false;
+            wallJumpingDirection = -transform.localScale.x;
+            wallJumpingCounter = wallJumpingTime;
+
+            CancelInvoke(nameof(StopWallJumping));
+        }
+        else
+        {
+            wallJumpingCounter -= Time.deltaTime;
+        }
+
+        if (Input.GetButtonDown("Jump") && wallJumpingCounter > 0f)
+        {
+            isWallJumping = true;
+            m_Rigidbody2D.linearVelocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
+            wallJumpingCounter = 0f;
+
+            if (transform.localScale.x != wallJumpingDirection)
+            {
+                m_FacingRight = !m_FacingRight;
+                Vector3 localScale = transform.localScale;
+                localScale.x *= -1f;
+                transform.localScale = localScale;
+            }
+            Invoke(nameof(StopWallJumping), wallJumpingDuration);
+        }
+    }
+
+    private void StopWallJumping()
+    {
+        isWallJumping = false;
+
     }
 }
