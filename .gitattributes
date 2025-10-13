@@ -1,0 +1,11 @@
+# Set default behavior to disable automatic conversion
+* text=auto
+
+# Enforce 'LF' for key text file types, preventing CRLF commits
+*.cs      text eol=lf
+*.unity   text eol=lf
+*.json    text eol=lf
+*.asmdef  text eol=lf
+*.csproj  text eol=lf
+*.xml     text eol=lf
+*.md      text eol=lf
