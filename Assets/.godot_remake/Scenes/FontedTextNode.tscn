@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7wjwlqq3l15g"]
+
+[ext_resource type="FontFile" uid="uid://bcp6p4mwfqmpb" path="res://ImageAssets/Sprites/monogram-bitmap.png" id="1_mma6p"]
+
+[node name="Label" type="Label"]
+offset_right = 1.0
+offset_bottom = 16.0
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_mma6p")
