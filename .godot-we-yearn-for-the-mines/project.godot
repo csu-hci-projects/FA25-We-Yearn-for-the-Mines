@@ -15,6 +15,10 @@ run/main_scene="uid://c51h1fbq34svo"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://ImageAssets/icon.svg"
 
+[autoload]
+
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+
 [display]
 
 window/size/viewport_width=1600
@@ -22,6 +26,10 @@ window/size/viewport_height=1000
 window/size/window_width_override=800
 window/size/window_height_override=500
 window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 
 [input]
 
