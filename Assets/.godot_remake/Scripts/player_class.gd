@@ -1,17 +1,20 @@
 extends CharacterBody2D
-
+ 
 # The syntax looks like python, but unlike python, these scripts
 #  can't be run on their own. The code contained only means anything
 #  and can only be run in the context of the engine. For example,
 #  this file is tied to my PlayerClass node that I created in the engine
 #  but nowhere in this code does it say that this script is tied to that
-#  node. I can only configure that connection in the engine
+#  node. I can only configure that connection in the engine itself
 
+# Signals for sub-node synchronization
 
-const SPEED = 90.0
-const SPRINT_SPEED = 140.0
+# Physics Values
+const SPEED 		=  90.0
+const SPRINT_SPEED 	=  140.0
 const JUMP_VELOCITY = -250.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+@onready var rushing_follower : Node2D = $RushingFollower
 
 func _physics_process(delta: float) -> void:
 	
@@ -44,6 +47,6 @@ func _physics_process(delta: float) -> void:
 		#velocity.x = 50 * direction
 	else:
 		velocity.x = 0
-	
+	print("Player: ", get_real_velocity())
 	# Move the character based on our adjustments to its 'velocity' member
 	move_and_slide()

@@ -1,19 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://dy42qoioln1yj"]
+[gd_scene load_steps=6 format=3 uid="uid://dy42qoioln1yj"]
 
 [ext_resource type="Script" uid="uid://csjon1i73oab5" path="res://Scripts/player_class.gd" id="1_x6ns3"]
 [ext_resource type="Texture2D" uid="uid://de64ab3fds1x8" path="res://ImageAssets/Sprites/hiddenGuy.png" id="2_x6ns3"]
+[ext_resource type="Script" uid="uid://bsi48nure4sjh" path="res://Scripts/rushing_follower.gd" id="3_uahtv"]
+[ext_resource type="Texture2D" uid="uid://ycjurukgr4sk" path="res://ImageAssets/icon.svg" id="4_fwf6a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6ns3"]
 size = Vector2(16, 24)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_x6ns3")
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 12)
 shape = SubResource("RectangleShape2D_x6ns3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(8, 12)
 texture = ExtResource("2_x6ns3")
+
+[node name="RushingFollower" type="Node2D" parent="."]
+script = ExtResource("3_uahtv")
+
+[node name="Sprite2D" type="Sprite2D" parent="RushingFollower"]
+visible = false
+position = Vector2(0, -5)
+scale = Vector2(0.046875015, 0.0625)
+texture = ExtResource("4_fwf6a")
