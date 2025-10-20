@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq5jlsgd87a63"]
+
+[ext_resource type="PackedScene" uid="uid://bm5u181mu58ha" path="res://Scenes/PrefabScenes/camera_2d_confiner_area.tscn" id="2_f7al8"]
+
+[node name="Camera2DConfiner" type="Node2D"]
+
+[node name="Camera2DConfinerArea" parent="." instance=ExtResource("2_f7al8")]

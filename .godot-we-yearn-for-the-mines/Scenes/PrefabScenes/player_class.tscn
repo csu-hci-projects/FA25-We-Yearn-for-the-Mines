@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjeewdlqa2w3p"]
+
+[ext_resource type="Script" uid="uid://ca8cdl4uywiq0" path="res://Scripts/player_class.gd" id="1_fe025"]
+[ext_resource type="Texture2D" uid="uid://d2dlp1xch8nmw" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-idle/player-idle-1.png" id="1_mxhop"]
+[ext_resource type="PackedScene" uid="uid://dj6t1sqkxahan" path="res://Scenes/PrefabScenes/rushing_follower.tscn" id="3_t5uaa"]
+[ext_resource type="Script" uid="uid://bds3foj0f854r" path="res://Scripts/transition_detector_area.gd" id="4_auhmb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ptg7a"]
+size = Vector2(15, 39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46f1c"]
+size = Vector2(10, 10)
+
+[node name="PlayerNode" type="CharacterBody2D"]
+script = ExtResource("1_fe025")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 4.5)
+shape = SubResource("RectangleShape2D_ptg7a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mxhop")
+
+[node name="FollowCenter" type="Node2D" parent="."]
+visible = false
+position = Vector2(0, -24)
+
+[node name="RushingFollower" parent="FollowCenter" instance=ExtResource("3_t5uaa")]
+
+[node name="TransitionDetectorArea" type="Area2D" parent="."]
+script = ExtResource("4_auhmb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDetectorArea"]
+shape = SubResource("RectangleShape2D_46f1c")
