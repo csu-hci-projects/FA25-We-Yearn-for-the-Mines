@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjeewdlqa2w3p"]
+[gd_scene load_steps=6 format=3 uid="uid://cjeewdlqa2w3p"]
 
 [ext_resource type="Script" uid="uid://ca8cdl4uywiq0" path="res://Scripts/player_class.gd" id="1_fe025"]
-[ext_resource type="Texture2D" uid="uid://d2dlp1xch8nmw" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-idle/player-idle-1.png" id="1_mxhop"]
 [ext_resource type="PackedScene" uid="uid://dj6t1sqkxahan" path="res://Scenes/PrefabScenes/rushing_follower.tscn" id="3_t5uaa"]
 [ext_resource type="Script" uid="uid://bds3foj0f854r" path="res://Scripts/transition_detector_area.gd" id="4_auhmb"]
 
@@ -19,7 +18,6 @@ position = Vector2(-1.5, 4.5)
 shape = SubResource("RectangleShape2D_ptg7a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_mxhop")
 
 [node name="FollowCenter" type="Node2D" parent="."]
 visible = false

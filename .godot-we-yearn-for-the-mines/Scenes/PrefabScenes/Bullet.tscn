@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxmah3p2dj1am"]
+
+[ext_resource type="Texture2D" uid="uid://ph86iqgf2o31" path="res://ImageAssets/Warped Caves/Artwork/Sprites/Fx/shot/shot-1.png" id="1_buaoc"]
+[ext_resource type="Script" uid="uid://6uvhrl3osyjt" path="res://Scripts/bullet.gd" id="2_lqcs7"]
+
+[node name="Sprite2D" type="Sprite2D"]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_buaoc")
+script = ExtResource("2_lqcs7")

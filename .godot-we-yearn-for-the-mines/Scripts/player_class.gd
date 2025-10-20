@@ -23,6 +23,8 @@ signal camera_area_updated(area : Camera2DConfinerArea)
 @onready var rushing_follower : Node2D = $FollowCenter/RushingFollower
 @onready var transition_detector : Area2D = $TransitionDetectorArea
 
+@onready var animated_sprite = $AnimatedSprite2D
+
 func _ready() -> void:
 	rushing_follower.setup(self)
 	transition_detector.camera_area_updated.connect(camera_area_updated.emit)
@@ -61,9 +63,27 @@ func _process_horizontal_movement(delta: float) -> void:
 		velocity.x = speed * direction
 	else:
 		velocity.x = 0
+		
+func toggle_flip_sprite(direction):
+	if direction == 1:
+		animated_sprite.flip_h = false
+	if direction == -1: 
+		animated_sprite.flip_h = true
+		
+func handle_movement_animation():
+	var direction = Input.get_axis("move_left", "move_right")
+	if is_on_floor():
+		if !velocity:
+			animated_sprite.play("idle")
+		else:
+			animated_sprite.play("run")
+			toggle_flip_sprite(direction)
+	else:
+		animated_sprite.play("jump")
 
 func _physics_process(delta: float) -> void:
 	_process_vertical_movement(delta)
 	_process_horizontal_movement(delta)
 	move_and_slide()
+	handle_movement_animation()
 	
