@@ -1,9 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxmah3p2dj1am"]
+[gd_scene load_steps=4 format=3 uid="uid://dxmah3p2dj1am"]
 
 [ext_resource type="Texture2D" uid="uid://ph86iqgf2o31" path="res://ImageAssets/Warped Caves/Artwork/Sprites/Fx/shot/shot-1.png" id="1_buaoc"]
 [ext_resource type="Script" uid="uid://6uvhrl3osyjt" path="res://Scripts/bullet.gd" id="2_lqcs7"]
 
-[node name="Sprite2D" type="Sprite2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqcs7"]
+size = Vector2(6.035544, 4.059623)
+
+[node name="Bullet" type="Sprite2D"]
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_buaoc")
 script = ExtResource("2_lqcs7")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.04492898, 0.022375554)
+scale = Vector2(0.9999988, 0.9999988)
+shape = SubResource("RectangleShape2D_lqcs7")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-3.0663161, -2.0244665, 6.0607824, 4.1207857)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

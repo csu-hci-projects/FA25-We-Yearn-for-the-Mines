@@ -25,6 +25,9 @@ signal camera_area_updated(area : Camera2DConfinerArea)
 
 @onready var animated_sprite = $AnimatedSprite2D
 
+var weapon_equipped : bool = false
+@onready var bullet = preload("res://Scenes/PrefabScenes/Bullet.tscn")
+
 func _ready() -> void:
 	rushing_follower.setup(self)
 	transition_detector.camera_area_updated.connect(camera_area_updated.emit)
@@ -74,16 +77,41 @@ func handle_movement_animation():
 	var direction = Input.get_axis("move_left", "move_right")
 	if is_on_floor():
 		if !velocity:
-			animated_sprite.play("idle")
+			if weapon_equipped:
+				animated_sprite.play("shoot")
+			else:
+				animated_sprite.play("idle")
 		else:
-			animated_sprite.play("run")
-			toggle_flip_sprite(direction)
+			if weapon_equipped:
+				animated_sprite.play("run-shoot")
+			else:
+				animated_sprite.play("run")
 	else:
 		animated_sprite.play("jump")
-
+	toggle_flip_sprite(direction)
+		
+func check_weapon_equipped():
+	if Input.is_action_just_pressed("equip_weapon"):
+		weapon_equipped = !weapon_equipped
+		
+func shoot():
+	if weapon_equipped and Input.is_action_just_pressed('shoot'):
+		var b = bullet.instantiate()
+		get_parent().add_child(b)
+		b.global_position = $Marker2D.global_position
+	
 func _physics_process(delta: float) -> void:
 	_process_vertical_movement(delta)
 	_process_horizontal_movement(delta)
 	move_and_slide()
 	handle_movement_animation()
+	check_weapon_equipped()
+	shoot()
 	
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	var name = area.get_parent().name
+	if name == "Enemy":
+		modulate = Color(1, 0.5, 0.5)
+		await get_tree().create_timer(0.3).timeout
+		modulate = Color(1.0, 1.0, 1.0, 1.0)
