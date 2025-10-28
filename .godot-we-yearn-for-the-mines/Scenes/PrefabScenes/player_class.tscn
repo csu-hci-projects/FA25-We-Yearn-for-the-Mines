@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://cjeewdlqa2w3p"]
+[gd_scene load_steps=43 format=3 uid="uid://cjeewdlqa2w3p"]
 
 [ext_resource type="Script" uid="uid://ca8cdl4uywiq0" path="res://Scripts/player_class.gd" id="1_fe025"]
 [ext_resource type="Texture2D" uid="uid://d2dlp1xch8nmw" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-idle/player-idle-1.png" id="1_mxhop"]
@@ -182,10 +182,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1oxp"]
 size = Vector2(33, 47)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppiq0"]
+size = Vector2(17, 24)
+
 [node name="PlayerNode" type="CharacterBody2D"]
 script = ExtResource("1_fe025")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="StandingCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 4.5)
 shape = SubResource("RectangleShape2D_ptg7a")
 
@@ -207,7 +210,7 @@ shape = SubResource("RectangleShape2D_46f1c")
 position = Vector2(-0.5, 5.066395e-06)
 scale = Vector2(1.0125, 1.0000002)
 sprite_frames = SubResource("SpriteFrames_1a362")
-animation = &"idle"
+animation = &"crouch"
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(15, -3)
@@ -217,5 +220,10 @@ position = Vector2(15, -3)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1.5, 4.5)
 shape = SubResource("RectangleShape2D_a1oxp")
+
+[node name="CrouchingCollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 12)
+shape = SubResource("RectangleShape2D_ppiq0")
+disabled = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
