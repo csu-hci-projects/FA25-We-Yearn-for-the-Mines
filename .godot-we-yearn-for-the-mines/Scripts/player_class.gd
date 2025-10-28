@@ -28,6 +28,9 @@ signal camera_area_updated(area : Camera2DConfinerArea)
 @onready var standing_collision_shape = $StandingCollisionShape
 @onready var crouching_collision_shape = $CrouchingCollisionShape
 
+@onready var raycast_left = $RayCastLeft
+@onready var raycast_right = $RayCastRight
+
 var is_crouching : bool = false
 var weapon_equipped : bool = false
 @onready var bullet = preload("res://Scenes/PrefabScenes/Bullet.tscn")
@@ -101,12 +104,11 @@ func check_weapon_equipped():
 		weapon_equipped = !weapon_equipped
 		
 func check_crouching():
-	if Input.is_action_pressed("crouch"):
+	if Input.is_action_pressed("crouch") or raycast_left.is_colliding() or raycast_right.is_colliding():
 		is_crouching = true
 		crouching_collision_shape.disabled = false
 		standing_collision_shape.disabled = true
-	elif Input.is_action_just_released("crouch"):
-
+	else:
 		is_crouching = false
 		crouching_collision_shape.disabled = true
 		standing_collision_shape.disabled = false
@@ -115,7 +117,7 @@ func shoot():
 	if weapon_equipped and Input.is_action_just_pressed('shoot'):
 		var b = bullet.instantiate()
 		get_parent().add_child(b)
-		b.global_position = $Marker2D.global_position
+		b.global_position = $Marker2D.global_positiond
 		
 	
 func _physics_process(delta: float) -> void:
