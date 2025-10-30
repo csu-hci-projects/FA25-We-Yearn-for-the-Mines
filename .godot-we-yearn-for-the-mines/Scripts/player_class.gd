@@ -11,7 +11,7 @@ class_name PlayerClass
 
 # Physics Values
 const SPEED = 135
-const SPRINT_SPEED = 230
+const CROUCH_SPEED = 100
 const JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -25,6 +25,13 @@ signal camera_area_updated(area : Camera2DConfinerArea)
 
 @onready var animated_sprite = $AnimatedSprite2D
 
+@onready var standing_collision_shape = $StandingCollisionShape
+@onready var crouching_collision_shape = $CrouchingCollisionShape
+
+@onready var raycast_left = $RayCastLeft
+@onready var raycast_right = $RayCastRight
+
+var is_crouching : bool = false
 var weapon_equipped : bool = false
 @onready var bullet = preload("res://Scenes/PrefabScenes/Bullet.tscn")
 
@@ -62,7 +69,7 @@ func _process_vertical_movement(delta: float) -> void:
 func _process_horizontal_movement(delta: float) -> void:
 	var direction = Input.get_axis("move_left", "move_right")
 	if direction:
-		var speed = SPRINT_SPEED if Input.is_action_pressed("sprint") else SPEED
+		var speed = CROUCH_SPEED if is_crouching else SPEED
 		velocity.x = speed * direction
 	else:
 		velocity.x = 0
@@ -76,7 +83,9 @@ func toggle_flip_sprite(direction):
 func handle_movement_animation():
 	var direction = Input.get_axis("move_left", "move_right")
 	if is_on_floor():
-		if !velocity:
+		if is_crouching:
+			animated_sprite.play("crouch")
+		elif !velocity:
 			if weapon_equipped:
 				animated_sprite.play("shoot")
 			else:
@@ -94,11 +103,22 @@ func check_weapon_equipped():
 	if Input.is_action_just_pressed("equip_weapon"):
 		weapon_equipped = !weapon_equipped
 		
+func check_crouching():
+	if Input.is_action_pressed("crouch") or raycast_left.is_colliding():
+		is_crouching = true
+		crouching_collision_shape.disabled = false
+		standing_collision_shape.disabled = true
+	else:
+		is_crouching = false
+		crouching_collision_shape.disabled = true
+		standing_collision_shape.disabled = false
+		
 func shoot():
 	if weapon_equipped and Input.is_action_just_pressed('shoot'):
 		var b = bullet.instantiate()
 		get_parent().add_child(b)
 		b.global_position = $Marker2D.global_position
+		
 	
 func _physics_process(delta: float) -> void:
 	_process_vertical_movement(delta)
@@ -106,6 +126,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	handle_movement_animation()
 	check_weapon_equipped()
+	check_crouching()
 	shoot()
 	
 
