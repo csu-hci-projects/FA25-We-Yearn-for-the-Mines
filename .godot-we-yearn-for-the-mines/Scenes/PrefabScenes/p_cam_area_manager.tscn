@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpy67ctwslpk1"]
+
+[ext_resource type="Script" uid="uid://bavpy1udmi526" path="res://Scripts/p_cam_area_manager.gd" id="1_77uac"]
+[ext_resource type="PackedScene" uid="uid://do8v5rd78fudh" path="res://Scenes/PrefabScenes/directional_trigger_area_2d.tscn" id="2_mf1x6"]
+
+[node name="PCamAreaManager" type="Node2D"]
+script = ExtResource("1_77uac")
+
+[node name="TrigArea1" parent="." instance=ExtResource("2_mf1x6")]
+x_axis = true

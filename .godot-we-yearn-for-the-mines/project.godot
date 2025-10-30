@@ -68,9 +68,19 @@ equip_weapon={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="trig_area"
+2d_physics/layer_3="enemies"
+2d_physics/layer_4="terrain"
+2d_physics/layer_5="projectiles"
+2d_physics/layer_6="player_peripherals"
+
 [physics]
 
 2d/default_gravity=1200.0
+common/physics_interpolation=true
 
 [rendering]
 
