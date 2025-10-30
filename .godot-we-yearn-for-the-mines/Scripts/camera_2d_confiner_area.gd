@@ -52,9 +52,3 @@ func get_limits() -> Vector4:
 		limits[3]
 	)
 	return limits_vect
-	
-
-#func _process(delta: float) -> void:
-	##print(id, get_overlapping_bodies(), shape.global_position.x)
-	##print(id, get_overlapping_areas(), "\n")
-	#pass

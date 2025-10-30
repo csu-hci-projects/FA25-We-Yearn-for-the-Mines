@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CameraTriggerLink" load_steps=2 format=3 uid="uid://d1s1qna1tlern"]
+
+[ext_resource type="Script" uid="uid://dcdnuawrdsosq" path="res://Scripts/camera_pair.gd" id="1_8pcf5"]
+
+[resource]
+script = ExtResource("1_8pcf5")
+metadata/_custom_type_script = "uid://dcdnuawrdsosq"

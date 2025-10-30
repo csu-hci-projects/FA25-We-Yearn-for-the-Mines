@@ -16,6 +16,8 @@ var start_limit_vec : Vector4
 
 var matches_goal : bool = true
 
+@onready var last_center_position : Vector2 = get_screen_center_position()
+
 func _ready() -> void:
 	curr_limit_vec = Vector4(
 		limit_left,
@@ -31,7 +33,8 @@ func _widen_limit_walls(limit_vec : Vector4, toggles : Array[bool]) -> Vector4:
 	for i in range(4): # Assumes the toggle is an array of length 4
 		if not toggles[i]:
 			var direction : float = -1.0 if (i % 2 == 0) else 1.0
-			limit_vec[i] = curr_limit_vec[i] + (1000 * direction)
+			var updated_lim : float = curr_limit_vec[i] + (1000 * direction)
+			limit_vec[i] = ( updated_lim if abs(updated_lim) < 10000000 else (10000000 * direction) )
 	return limit_vec
 
 func update_limits(limit_area : Camera2DConfinerArea) -> void:
@@ -56,10 +59,12 @@ func update_limits(limit_area : Camera2DConfinerArea) -> void:
 	
 
 func _physics_process(delta: float) -> void:
-	#print_debug(_get_actual_viewport_center())
+	
+	# Auto-Track 
 	if is_instance_valid(player_to_track):
 		var new_glob_pos : Vector2 = player_to_track.get_offset_tracking_pos()
 		global_position = new_glob_pos
+		print_debug("Viewport center: ", get_screen_center_position())
 	if not matches_goal:
 		if curr_limit_vec == goal_limit_vec:
 			matches_goal = true
@@ -129,4 +134,3 @@ func _physics_process(delta: float) -> void:
 		limit_top    = ceil(curr_limit_vec.z)
 		limit_bottom = floor(curr_limit_vec.w)
 		print_debug("Goal ", goal_limit_vec, "\nCurr ", curr_limit_vec, "\nMatches: ", matches_goal)
-		

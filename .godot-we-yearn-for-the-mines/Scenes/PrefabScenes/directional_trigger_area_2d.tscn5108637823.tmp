@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://do8v5rd78fudh"]
+
+[ext_resource type="Script" uid="uid://duur02m6ulhur" path="res://Scripts/directional_trigger_area_2d.gd" id="2_gnvax"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbhlj"]
+size = Vector2(16, 165.125)
+
+[node name="DirectionalTriggerArea2D" type="Area2D"]
+collision_layer = 2
+script = ExtResource("2_gnvax")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vbhlj")
