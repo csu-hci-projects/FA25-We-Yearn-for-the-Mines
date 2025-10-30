@@ -104,7 +104,7 @@ func check_weapon_equipped():
 		weapon_equipped = !weapon_equipped
 		
 func check_crouching():
-	if Input.is_action_pressed("crouch") or raycast_left.is_colliding() or raycast_right.is_colliding():
+	if Input.is_action_pressed("crouch") or raycast_left.is_colliding():
 		is_crouching = true
 		crouching_collision_shape.disabled = false
 		standing_collision_shape.disabled = true
@@ -117,7 +117,7 @@ func shoot():
 	if weapon_equipped and Input.is_action_just_pressed('shoot'):
 		var b = bullet.instantiate()
 		get_parent().add_child(b)
-		b.global_position = $Marker2D.global_positiond
+		b.global_position = $Marker2D.global_position
 		
 	
 func _physics_process(delta: float) -> void:

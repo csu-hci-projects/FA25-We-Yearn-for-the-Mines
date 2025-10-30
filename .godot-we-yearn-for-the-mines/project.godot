@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="godot_we_yearn_for_the_mines"
-run/main_scene="uid://c51h1fbq34svo"
+run/main_scene="uid://5bu3b7pxfmts"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/image="uid://bir21krwi76vj"
 config/icon="res://ImageAssets/icon.svg"
 
 [autoload]

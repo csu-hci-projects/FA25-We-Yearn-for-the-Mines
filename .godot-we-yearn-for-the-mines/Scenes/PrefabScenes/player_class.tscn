@@ -1,13 +1,18 @@
-[gd_scene load_steps=43 format=3 uid="uid://cjeewdlqa2w3p"]
+[gd_scene load_steps=48 format=3 uid="uid://cjeewdlqa2w3p"]
 
 [ext_resource type="Script" uid="uid://ca8cdl4uywiq0" path="res://Scripts/player_class.gd" id="1_fe025"]
 [ext_resource type="Texture2D" uid="uid://d2dlp1xch8nmw" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-idle/player-idle-1.png" id="1_mxhop"]
 [ext_resource type="PackedScene" uid="uid://dj6t1sqkxahan" path="res://Scenes/PrefabScenes/rushing_follower.tscn" id="3_t5uaa"]
 [ext_resource type="Texture2D" uid="uid://u1iwyuaxg8e8" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-duck/player-duck.png" id="4_a1oxp"]
 [ext_resource type="Script" uid="uid://bds3foj0f854r" path="res://Scripts/transition_detector_area.gd" id="4_auhmb"]
+[ext_resource type="Texture2D" uid="uid://crylk5da8oquw" path="res://ImageAssets/Warped Caves/Artwork/Sprites/Fx/enemy-death/enemy-death-1.png" id="5_hs80o"]
+[ext_resource type="Texture2D" uid="uid://bbpf5y847bhmm" path="res://ImageAssets/Warped Caves/Artwork/Sprites/Fx/enemy-death/enemy-death-2.png" id="6_3enqm"]
 [ext_resource type="Texture2D" uid="uid://bhf67atrtndwt" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-idle/player-idle-2.png" id="6_ppiq0"]
 [ext_resource type="Texture2D" uid="uid://cfrpcytsm2qxk" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-idle/player-idle-3.png" id="7_l54eh"]
+[ext_resource type="Texture2D" uid="uid://divd1vgtwckv7" path="res://ImageAssets/Warped Caves/Artwork/Sprites/Fx/enemy-death/enemy-death-3.png" id="7_ytj6d"]
 [ext_resource type="Texture2D" uid="uid://dnbo3c6vx4qci" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-idle/player-idle-4.png" id="8_7qygn"]
+[ext_resource type="Texture2D" uid="uid://dirxtsm0anyd5" path="res://ImageAssets/Warped Caves/Artwork/Sprites/Fx/enemy-death/enemy-death-4.png" id="8_y8eri"]
+[ext_resource type="Texture2D" uid="uid://t6o3gdwpdj0s" path="res://ImageAssets/Warped Caves/Artwork/Sprites/Fx/enemy-death/enemy-death-5.png" id="9_m1k24"]
 [ext_resource type="Texture2D" uid="uid://cdohg1h1ycy2x" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-jump/player-jump-1.png" id="9_sjhxd"]
 [ext_resource type="Texture2D" uid="uid://bgdnilxg08b2d" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-jump/player-jump-2.png" id="10_hs80o"]
 [ext_resource type="Texture2D" uid="uid://dwx8h4ffu3p22" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-jump/player-jump-3.png" id="11_3enqm"]
@@ -52,6 +57,26 @@ animations = [{
 }],
 "loop": true,
 "name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_hs80o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3enqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ytj6d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_y8eri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_m1k24")
+}],
+"loop": true,
+"name": &"death",
 "speed": 5.0
 }, {
 "frames": [{
@@ -210,7 +235,9 @@ shape = SubResource("RectangleShape2D_46f1c")
 position = Vector2(-0.5, 5.066395e-06)
 scale = Vector2(1.0125, 1.0000002)
 sprite_frames = SubResource("SpriteFrames_1a362")
-animation = &"crouch"
+animation = &"death"
+frame = 3
+frame_progress = 0.19237491
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(15, -3)
