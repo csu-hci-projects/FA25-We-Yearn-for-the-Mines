@@ -195,7 +195,7 @@ shape = SubResource("CapsuleShape2D_a1oxp")
 
 [node name="FollowCenter" type="Node2D" parent="."]
 visible = false
-position = Vector2(0, -40)
+position = Vector2(0, -32)
 
 [node name="RushingFollower" parent="FollowCenter" instance=ExtResource("3_t5uaa")]
 

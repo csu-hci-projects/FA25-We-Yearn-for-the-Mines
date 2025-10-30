@@ -1,6 +1,10 @@
 extends Node2D
 class_name CustomPCamManager
 
+# The camera set to the highest priority will be considered the
+# "loading" camera, and after a certain amount of time, the camera will
+# automatically update to the PhantomCamera2D
+@export var initial_cam : PhantomCamera2D
 var pcams : Dictionary[String, PhantomCamera2D] = {}
 var curr_cam : PhantomCamera2D = null
 
@@ -19,6 +23,11 @@ func _ready() -> void:
 		print_debug("PCamManager ", self.name, " has no PCams to Manage!")
 	else:
 		curr_cam.set_priority(1)
+	
+	get_tree().create_timer(0.3).timeout.connect(_update_camera_to_initial_cam)
+	
+func _update_camera_to_initial_cam() -> void:
+	update_camera(initial_cam)
 		
 func update_camera(cam : PhantomCamera2D) -> void:
 	print_debug("Updating_camera to ", cam.name)
