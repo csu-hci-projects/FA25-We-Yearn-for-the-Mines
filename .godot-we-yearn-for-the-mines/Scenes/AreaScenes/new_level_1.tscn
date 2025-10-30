@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5vj8yj6prgus"]
+
+[ext_resource type="PackedScene" uid="uid://bwc0jh3nujgue" path="res://Scenes/PrefabScenes/new_level_template.tscn" id="1_rggcp"]
+[ext_resource type="Script" uid="uid://dcdnuawrdsosq" path="res://Scripts/camera_pair.gd" id="2_uj4va"]
+[ext_resource type="PackedScene" uid="uid://rbaqo5aykddw" path="res://Scenes/PrefabScenes/Enemy.tscn" id="3_6vppy"]
+
+[sub_resource type="Resource" id="Resource_y22gh"]
+script = ExtResource("2_uj4va")
+positiveCam = NodePath("../PCamManager/PCam2")
+negativeCam = NodePath("../PCamManager/PCam1")
+metadata/_custom_type_script = "uid://dcdnuawrdsosq"
+
+[sub_resource type="Resource" id="Resource_ijiji"]
+script = ExtResource("2_uj4va")
+positiveCam = NodePath("../PCamManager/PCam3")
+negativeCam = NodePath("../PCamManager/PCam2")
+metadata/_custom_type_script = "uid://dcdnuawrdsosq"
+
+[sub_resource type="Resource" id="Resource_12uuq"]
+script = ExtResource("2_uj4va")
+positiveCam = NodePath("../PCamManager/PCam4")
+negativeCam = NodePath("../PCamManager/PCam2")
+metadata/_custom_type_script = "uid://dcdnuawrdsosq"
+
+[node name="new_level_1" type="Node2D"]
+
+[node name="NewLevelTemplate" parent="." instance=ExtResource("1_rggcp")]
+
+[node name="PCamAreaManager" parent="NewLevelTemplate" index="2" node_paths=PackedStringArray("trigg_cam_pairs")]
+trigg_cam_pairs = {
+NodePath("TrigArea1"): SubResource("Resource_y22gh"),
+NodePath("TrigArea2"): SubResource("Resource_ijiji"),
+NodePath("TrigArea3"): SubResource("Resource_12uuq")
+}
+
+[node name="Enemy" parent="." instance=ExtResource("3_6vppy")]
+position = Vector2(202, 161)
+
+[editable path="NewLevelTemplate"]
+[editable path="NewLevelTemplate/PCamManager"]
+[editable path="NewLevelTemplate/PCamAreaManager"]
+[editable path="NewLevelTemplate/PCamAreaManager/TrigArea1"]
+[editable path="NewLevelTemplate/PCamAreaManager/TrigArea2"]
+[editable path="NewLevelTemplate/PCamAreaManager/TrigArea3"]
+[editable path="NewLevelTemplate/PlayerNode"]

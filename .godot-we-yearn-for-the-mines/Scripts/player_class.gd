@@ -18,10 +18,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 signal landed_for_first_time
 var bool_landed_for_first_time : bool = false
 
-signal camera_area_updated(area : Camera2DConfinerArea)
-
 @onready var rushing_follower : Node2D = $FollowCenter/RushingFollower
-@onready var transition_detector : Area2D = $TransitionDetectorArea
 
 @onready var animated_sprite = $AnimatedSprite2D
 
@@ -37,7 +34,6 @@ var weapon_equipped : bool = false
 
 func _ready() -> void:
 	rushing_follower.setup(self)
-	transition_detector.camera_area_updated.connect(camera_area_updated.emit)
 
 func get_offset_tracking_pos() -> Vector2:
 	if is_instance_valid(rushing_follower):
