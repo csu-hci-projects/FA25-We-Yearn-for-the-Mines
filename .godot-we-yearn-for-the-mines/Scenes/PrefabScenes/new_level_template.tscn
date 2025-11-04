@@ -1,10 +1,11 @@
-[gd_scene load_steps=42 format=4 uid="uid://bwc0jh3nujgue"]
+[gd_scene load_steps=44 format=4 uid="uid://bwc0jh3nujgue"]
 
 [ext_resource type="Script" uid="uid://c4p44e6fw4l7e" path="res://Scripts/new_level_template.gd" id="1_2bfj2"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_guwai"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_15odd"]
 [ext_resource type="PackedScene" uid="uid://brbti76k1l1x5" path="res://Scenes/PrefabScenes/p_cam_manager.tscn" id="3_0tny5"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_hubaq"]
+[ext_resource type="Texture2D" uid="uid://d2uk76sawxms" path="res://ImageAssets/super_pixel_cave/style_B/PNG/bg1.png" id="3_ijiji"]
 [ext_resource type="Texture2D" uid="uid://cdr4iadhma15q" path="res://ImageAssets/Cave Platformer Tileset/Enviroment sprite sheets/cave_tileset.png" id="4_f3ao3"]
 [ext_resource type="Texture2D" uid="uid://brjtfw7w2dsd5" path="res://ImageAssets/Warped Caves/Artwork/Environment/tilesets.png" id="5_4c7o6"]
 [ext_resource type="PackedScene" uid="uid://bpy67ctwslpk1" path="res://Scenes/PrefabScenes/p_cam_area_manager.tscn" id="6_l8wun"]
@@ -18,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://ba4p1rkjisa2v" path="res://ImageAssets/Cave Platformer Tileset/Enviroment sprite sheets/objects_misc.png" id="11_y22gh"]
 [ext_resource type="Texture2D" uid="uid://bboirf5n5ejgw" path="res://ImageAssets/Cave Platformer Tileset/Enviroment sprite sheets/bg_cave_blueish_other.png" id="12_ijiji"]
 [ext_resource type="PackedScene" uid="uid://cjeewdlqa2w3p" path="res://Scenes/PrefabScenes/player_class.tscn" id="13_4c7o6"]
+[ext_resource type="Texture2D" uid="uid://cfj7i7xlnv3v6" path="res://ImageAssets/Warped Caves/Artwork/Environment/background.png" id="19_y22gh"]
 
 [sub_resource type="Resource" id="Resource_l8wun"]
 script = ExtResource("3_hubaq")
@@ -814,12 +816,39 @@ sources/8 = SubResource("TileSetAtlasSource_77aqk")
 [node name="NewLevelTemplate" type="Node2D"]
 script = ExtResource("1_2bfj2")
 
+[node name="ParallaxLayers" type="Node2D" parent="."]
+
+[node name="Rear" type="Parallax2D" parent="ParallaxLayers"]
+scroll_scale = Vector2(1.3, 1)
+repeat_size = Vector2(360, 0)
+repeat_times = 5
+limit_begin = Vector2(-10000000, 0)
+limit_end = Vector2(10000000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayers/Rear"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_y22gh")
+centered = false
+
+[node name="Near" type="Parallax2D" parent="ParallaxLayers"]
+scroll_scale = Vector2(1.1, 1)
+repeat_size = Vector2(480, 0)
+repeat_times = 5
+limit_begin = Vector2(-10000000, 0)
+limit_end = Vector2(10000000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayers/Near"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_ijiji")
+centered = false
+
 [node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
 position = Vector2(160, 100)
 zoom = Vector2(5, 5)
+process_callback = 0
 limit_left = 0
 limit_top = 0
-limit_right = 320
 limit_bottom = 200
 editor_draw_limits = true
 
@@ -830,10 +859,10 @@ script = ExtResource("1_guwai")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PCamManager" parent="." node_paths=PackedStringArray("initial_cam") instance=ExtResource("3_0tny5")]
-visible = false
 initial_cam = NodePath("PCam1")
 
 [node name="LoadingCam" type="Node2D" parent="PCamManager"]
+visible = false
 position = Vector2(160, 100)
 script = ExtResource("2_15odd")
 priority = 1
@@ -852,6 +881,7 @@ limit_bottom = 200
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="PCam1" type="Node2D" parent="PCamManager" node_paths=PackedStringArray("follow_target")]
+visible = false
 top_level = true
 position = Vector2(160, 100)
 script = ExtResource("2_15odd")
@@ -871,6 +901,7 @@ limit_bottom = 200
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="PCam2" type="Node2D" parent="PCamManager" node_paths=PackedStringArray("follow_target")]
+visible = false
 top_level = true
 position = Vector2(59, 100)
 script = ExtResource("2_15odd")
@@ -888,6 +919,7 @@ limit_top = 0
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="PCam3" type="Node2D" parent="PCamManager" node_paths=PackedStringArray("follow_target")]
+visible = false
 top_level = true
 position = Vector2(59, 100)
 script = ExtResource("2_15odd")
@@ -907,6 +939,7 @@ limit_bottom = 200
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="PCam4" type="Node2D" parent="PCamManager" node_paths=PackedStringArray("follow_target")]
+visible = false
 top_level = true
 position = Vector2(400, 90)
 script = ExtResource("2_15odd")

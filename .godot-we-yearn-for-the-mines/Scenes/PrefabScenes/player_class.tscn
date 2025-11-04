@@ -217,6 +217,7 @@ shape = SubResource("RectangleShape2D_sjhxd")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="FollowCenter" type="Node2D" parent="."]
+visible = false
 position = Vector2(0, -32)
 
 [node name="RushingFollower" parent="FollowCenter" instance=ExtResource("3_t5uaa")]
