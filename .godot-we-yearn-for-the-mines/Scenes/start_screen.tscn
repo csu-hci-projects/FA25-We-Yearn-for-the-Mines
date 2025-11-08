@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://5bu3b7pxfmts"]
 
-[ext_resource type="Script" path="res://StartScreen.gd" id="1_i8r30"]
-[ext_resource type="Texture2D" uid="uid://bir21krwi76vj" path="res://ImageAssets/alienmine2.png" id="2_ainjc"]
+[ext_resource type="Script" uid="uid://c1yqudajn01rd" path="res://StartScreen.gd" id="1_i8r30"]
+[ext_resource type="Texture2D" uid="uid://bir21krwi76vj" path="res://ImageAssets/Misc/alienmine2.png" id="2_ainjc"]
 [ext_resource type="FontFile" uid="uid://bvb5j8ndmgmos" path="res://ImageAssets/Fonts/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Doublespace/Peaberry-Doublespace.otf" id="3_60ddj"]
 
 [node name="StartScreen" type="Control"]

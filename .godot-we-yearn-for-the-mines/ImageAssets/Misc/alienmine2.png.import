@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bir21krwi76vj"
-path="res://.godot/imported/alienmine2.png-dd72eba2de29f9e76a35baa3eb0c551a.ctex"
+path="res://.godot/imported/alienmine2.png-f1f39091e47b116aae4260eb3215e8ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImageAssets/alienmine2.png"
-dest_files=["res://.godot/imported/alienmine2.png-dd72eba2de29f9e76a35baa3eb0c551a.ctex"]
+source_file="res://ImageAssets/Misc/alienmine2.png"
+dest_files=["res://.godot/imported/alienmine2.png-f1f39091e47b116aae4260eb3215e8ea.ctex"]
 
 [params]
 

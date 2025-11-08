@@ -1,0 +1,106 @@
+[gd_scene load_steps=18 format=3 uid="uid://cs3tghqdqemj2"]
+
+[ext_resource type="Texture2D" uid="uid://crylk5da8oquw" path="res://ImageAssets/Warped Caves/Artwork/Sprites/Fx/enemy-death/enemy-death-1.png" id="1_en4xh"]
+[ext_resource type="Script" uid="uid://bbw74lx0yn3ol" path="res://Scripts/enemy.gd" id="1_osmkf"]
+[ext_resource type="Texture2D" uid="uid://bbpf5y847bhmm" path="res://ImageAssets/Warped Caves/Artwork/Sprites/Fx/enemy-death/enemy-death-2.png" id="2_osmkf"]
+[ext_resource type="Texture2D" uid="uid://divd1vgtwckv7" path="res://ImageAssets/Warped Caves/Artwork/Sprites/Fx/enemy-death/enemy-death-3.png" id="3_f8hnl"]
+[ext_resource type="Texture2D" uid="uid://dirxtsm0anyd5" path="res://ImageAssets/Warped Caves/Artwork/Sprites/Fx/enemy-death/enemy-death-4.png" id="4_cgcsb"]
+[ext_resource type="Texture2D" uid="uid://t6o3gdwpdj0s" path="res://ImageAssets/Warped Caves/Artwork/Sprites/Fx/enemy-death/enemy-death-5.png" id="5_xekoq"]
+[ext_resource type="Texture2D" uid="uid://dxtq0nxnpo5p4" path="res://ImageAssets/Warped Caves/Artwork/Sprites/enemies/crab-idle/crab-idle-1.png" id="6_eg4a0"]
+[ext_resource type="Texture2D" uid="uid://7wapikrbq6d6" path="res://ImageAssets/Warped Caves/Artwork/Sprites/enemies/crab-idle/crab-idle-2.png" id="7_1tg7p"]
+[ext_resource type="Texture2D" uid="uid://bkghenes6rns8" path="res://ImageAssets/Warped Caves/Artwork/Sprites/enemies/crab-idle/crab-idle-3.png" id="8_5eswe"]
+[ext_resource type="Texture2D" uid="uid://chlnomkfab7ah" path="res://ImageAssets/Warped Caves/Artwork/Sprites/enemies/crab-idle/crab-idle-4.png" id="9_1keoy"]
+[ext_resource type="Texture2D" uid="uid://cdycimx6hnjkm" path="res://ImageAssets/Warped Caves/Artwork/Sprites/enemies/crab-walk/crab-walk-1.png" id="10_s0w7u"]
+[ext_resource type="Texture2D" uid="uid://cwa7jrsf241ut" path="res://ImageAssets/Warped Caves/Artwork/Sprites/enemies/crab-walk/crab-walk-2.png" id="11_mt2ip"]
+[ext_resource type="Texture2D" uid="uid://cc0wkkk3trwdh" path="res://ImageAssets/Warped Caves/Artwork/Sprites/enemies/crab-walk/crab-walk-3.png" id="12_rs3n4"]
+[ext_resource type="Texture2D" uid="uid://587frjjcb2na" path="res://ImageAssets/Warped Caves/Artwork/Sprites/enemies/crab-walk/crab-walk-4.png" id="13_eelc2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2bkgb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_en4xh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_osmkf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f8hnl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cgcsb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xekoq")
+}],
+"loop": true,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_eg4a0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1tg7p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5eswe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1keoy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_s0w7u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mt2ip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_rs3n4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_eelc2")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_en4xh"]
+size = Vector2(30.508598, 28.304821)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_osmkf"]
+size = Vector2(22.451027, 23.11163)
+
+[node name="CrabEnemy" type="CharacterBody2D" groups=["enemies"]]
+script = ExtResource("1_osmkf")
+MAX_HITS = 7
+amplitude = 0.0
+horizontal = 30.0
+speed = 3.0
+can_walk = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2bkgb")
+animation = &"idle"
+frame = 3
+frame_progress = 0.40729517
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.27965164, 1.3854237)
+shape = SubResource("RectangleShape2D_en4xh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.38295364, 1.4746838)
+shape = SubResource("RectangleShape2D_osmkf")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
