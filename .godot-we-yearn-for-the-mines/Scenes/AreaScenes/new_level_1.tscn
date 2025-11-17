@@ -7,8 +7,8 @@
 
 [sub_resource type="Resource" id="Resource_y22gh"]
 script = ExtResource("2_uj4va")
-positiveCam = NodePath("../PCamManager/PCam2")
-negativeCam = NodePath("../PCamManager/PCam1")
+positiveCam = NodePath("../PCamManager/PCam3")
+negativeCam = NodePath("../PCamManager/PCam2")
 metadata/_custom_type_script = "uid://dcdnuawrdsosq"
 
 [sub_resource type="Resource" id="Resource_ijiji"]
@@ -19,8 +19,8 @@ metadata/_custom_type_script = "uid://dcdnuawrdsosq"
 
 [sub_resource type="Resource" id="Resource_12uuq"]
 script = ExtResource("2_uj4va")
-positiveCam = NodePath("../PCamManager/PCam4")
-negativeCam = NodePath("../PCamManager/PCam2")
+positiveCam = NodePath("../PCamManager/PCam2")
+negativeCam = NodePath("../PCamManager/PCam1")
 metadata/_custom_type_script = "uid://dcdnuawrdsosq"
 
 [node name="new_level_1" type="Node2D"]

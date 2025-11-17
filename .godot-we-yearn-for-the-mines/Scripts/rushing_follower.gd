@@ -30,10 +30,10 @@ func _physics_process(delta: float) -> void:
 	var dir_match_x : float = target_vel.x * position.x
 	var dir_match_y : float = target_vel.y * position.y
 	
-	# If swapped directions, reset x to 0. Same for y
-	var next_x : float = (position.x + move_vect.x) if (dir_match_x >= 0) else 0.0
-	if next_x == 0 && target_vel.x != 0:
-		print_debug("0!\npvec: ", target_vel.x )
+	# If swapped directions, reset x to 0
+	var next_x : float
+	if dir_match_x >= 0 or abs(target_vel.x) < 10: # If going same direction
+		next_x = position.x + move_vect.x
 	
 	# If target y velocity is 0, y follower position = 0 immediately (not just when change direction)
 	var next_y : float = 0.0
