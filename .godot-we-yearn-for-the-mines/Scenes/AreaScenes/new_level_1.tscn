@@ -1,15 +1,15 @@
 [gd_scene load_steps=9 format=3 uid="uid://cespgexkxuysi"]
 
 [ext_resource type="PackedScene" uid="uid://bwc0jh3nujgue" path="res://Scenes/PrefabScenes/new_level_template.tscn" id="1_rggcp"]
-[ext_resource type="Script" path="res://Scripts/camera_pair.gd" id="2_uj4va"]
+[ext_resource type="Script" uid="uid://dcdnuawrdsosq" path="res://Scripts/camera_pair.gd" id="2_uj4va"]
 [ext_resource type="PackedScene" uid="uid://rbaqo5aykddw" path="res://Scenes/PrefabScenes/OctopusEnemy.tscn" id="3_6vppy"]
 [ext_resource type="PackedScene" uid="uid://cs3tghqdqemj2" path="res://Scenes/PrefabScenes/crab_enemy.tscn" id="4_frmp2"]
 [ext_resource type="PackedScene" uid="uid://b2grh3fphp41b" path="res://Scenes/PrefabScenes/moondust.tscn" id="5_vuss1"]
 
 [sub_resource type="Resource" id="Resource_y22gh"]
 script = ExtResource("2_uj4va")
-positiveCam = NodePath("../PCamManager/PCam3")
-negativeCam = NodePath("../PCamManager/PCam2")
+positiveCam = NodePath("../PCamManager/PCam2")
+negativeCam = NodePath("../PCamManager/PCam1")
 metadata/_custom_type_script = "uid://dcdnuawrdsosq"
 
 [sub_resource type="Resource" id="Resource_ijiji"]
@@ -34,6 +34,9 @@ NodePath("TrigArea1"): SubResource("Resource_y22gh"),
 NodePath("TrigArea2"): SubResource("Resource_ijiji"),
 NodePath("TrigArea3"): SubResource("Resource_12uuq")
 }
+
+[node name="Destructible" parent="NewLevelTemplate/TileMapLayers" index="1"]
+tile_map_data = PackedByteArray(0, 0, 19, 0, 9, 0, 0, 0, 6, 0, 13, 0, 0, 0, 20, 0, 9, 0, 0, 0, 6, 0, 13, 0, 0, 0)
 
 [node name="HBoxContainer" parent="NewLevelTemplate/PlayerNode/HealthBar" index="0"]
 offset_left = 34.0

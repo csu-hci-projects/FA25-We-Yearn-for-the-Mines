@@ -41,6 +41,7 @@ var hearts_list : Array[TextureRect]
 @onready var hurt_timer = Timer.new()
 
 @onready var bullet = preload("res://Scenes/PrefabScenes/Bullet.tscn")
+@onready var newbullet = preload("res://Scenes/PrefabScenes/newBullet.tscn")
 
 func _ready() -> void:
 	rushing_follower.setup(self)
@@ -133,6 +134,13 @@ func shoot():
 		b.global_position = $LeftMarker2D.global_position if animated_sprite.flip_h else $RightMarker2D.global_position
 		b.direction = -1 if animated_sprite.flip_h else 1
 		get_parent().add_child(b)
+		
+func experimental_shoot():
+	if Input.is_action_just_pressed("right_click"):
+		var b = newbullet.instantiate()
+		b.global_position = $LeftMarker2D.global_position if animated_sprite.flip_h else $RightMarker2D.global_position
+		b.direction = Vector2(-1, 0) if animated_sprite.flip_h else Vector2(1,0)
+		get_tree().current_scene.add_child(b)
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("enemies"):
@@ -179,6 +187,7 @@ func _physics_process(delta: float) -> void:
 	check_weapon_equipped()
 	check_crouching()
 	shoot()
+	experimental_shoot()
 	
 func _process(delta: float):
 	$"HealthBar/MoondustValue".text = str(GameManager.moondust)
