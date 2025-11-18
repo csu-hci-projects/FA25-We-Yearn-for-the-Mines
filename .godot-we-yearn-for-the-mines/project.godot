@@ -19,6 +19,7 @@ config/icon="res://ImageAssets/icon.svg"
 [autoload]
 
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+GameManager="*res://Scenes/PrefabScenes/game_manager.tscn"
 
 [display]
 
@@ -35,6 +36,7 @@ enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 [global_group]
 
 enemies=""
+player=""
 
 [input]
 

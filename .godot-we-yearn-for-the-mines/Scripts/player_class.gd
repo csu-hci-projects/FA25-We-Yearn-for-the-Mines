@@ -161,6 +161,7 @@ func _take_damage():
 		print("Player died! rip")
 		await get_tree().create_timer(0.3).timeout
 		queue_free()
+		get_tree().reload_current_scene()
 		
 func _update_heart_display():
 	for i in range(hearts_list.size()):
@@ -178,3 +179,6 @@ func _physics_process(delta: float) -> void:
 	check_weapon_equipped()
 	check_crouching()
 	shoot()
+	
+func _process(delta: float):
+	$"HealthBar/MoondustValue".text = str(GameManager.moondust)
