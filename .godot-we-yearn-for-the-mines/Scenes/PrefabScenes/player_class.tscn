@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cjeewdlqa2w3p"]
+[gd_scene load_steps=49 format=3 uid="uid://cjeewdlqa2w3p"]
 
 [ext_resource type="Script" uid="uid://ca8cdl4uywiq0" path="res://Scripts/player_class.gd" id="1_fe025"]
 [ext_resource type="Texture2D" uid="uid://d2dlp1xch8nmw" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-idle/player-idle-1.png" id="1_mxhop"]
@@ -42,6 +42,8 @@
 [ext_resource type="Texture2D" uid="uid://dledjgbg7enwa" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-stand/player-stand-2.png" id="36_ad7gv"]
 [ext_resource type="Texture2D" uid="uid://bq60003k4uau" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-stand/player-stand-3.png" id="37_wb03r"]
 [ext_resource type="PackedScene" uid="uid://to7uuf3jomk0" path="res://Scenes/PrefabScenes/heart.tscn" id="42_hs80o"]
+[ext_resource type="FontFile" uid="uid://wmu2dgek0uo7" path="res://ImageAssets/Fonts/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.ttf" id="43_3enqm"]
+[ext_resource type="Texture2D" uid="uid://c86c2hs8jk0a5" path="res://ImageAssets/Misc/spr_coin_azu.png" id="44_ytj6d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sjhxd"]
 size = Vector2(16, 39)
@@ -207,7 +209,7 @@ size = Vector2(47, 55)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppiq0"]
 size = Vector2(17, 24)
 
-[node name="PlayerNode" type="CharacterBody2D"]
+[node name="PlayerNode" type="CharacterBody2D" groups=["player"]]
 collision_mask = 13
 script = ExtResource("1_fe025")
 
@@ -288,6 +290,23 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Heart" parent="HealthBar/HBoxContainer/heart2" instance=ExtResource("42_hs80o")]
+
+[node name="MoondustValue" type="Label" parent="HealthBar"]
+offset_left = 1409.0
+offset_top = 12.0
+offset_right = 1536.0
+offset_bottom = 62.0
+theme_override_fonts/font = ExtResource("43_3enqm")
+theme_override_font_sizes/font_size = 49
+text = "0"
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="HealthBar"]
+offset_left = 1540.0
+offset_top = 2.0
+offset_right = 1598.0
+offset_bottom = 63.0
+texture = ExtResource("44_ytj6d")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
