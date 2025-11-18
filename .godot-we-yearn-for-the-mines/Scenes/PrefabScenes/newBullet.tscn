@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwos8u6l0yvev"]
+
+[ext_resource type="Script" uid="uid://djc41rx1wccl6" path="res://Scripts/new_bullet.gd" id="1_qvddc"]
+[ext_resource type="Texture2D" uid="uid://ph86iqgf2o31" path="res://ImageAssets/Warped Caves/Artwork/Sprites/Fx/shot/shot-1.png" id="1_tniax"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pu7h"]
+size = Vector2(6, 4)
+
+[node name="NewBullet" type="CharacterBody2D"]
+script = ExtResource("1_qvddc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8pu7h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tniax")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+rect = Rect2(-3, -2, 6, 4)
