@@ -140,7 +140,7 @@ func experimental_shoot():
 		var b = newbullet.instantiate()
 		b.global_position = $LeftMarker2D.global_position if animated_sprite.flip_h else $RightMarker2D.global_position
 		b.direction = Vector2(-1, 0) if animated_sprite.flip_h else Vector2(1,0)
-		get_tree().current_scene.add_child(b)
+		add_sibling(b)
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("enemies"):

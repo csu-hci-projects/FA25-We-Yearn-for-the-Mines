@@ -2,5 +2,5 @@
 class_name CameraPair
 extends Resource
 
-@export var positiveCam : NodePath
-@export var negativeCam : NodePath
+@export_node_path("PhantomCamera2D") var positiveCam : NodePath
+@export_node_path("PhantomCamera2D") var negativeCam : NodePath

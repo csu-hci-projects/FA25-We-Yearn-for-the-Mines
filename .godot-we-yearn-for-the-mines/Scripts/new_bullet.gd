@@ -11,7 +11,6 @@ var direction: Vector2:
 		_dir = value
 		
 func _ready() -> void:
-	print_debug("Bullet Here!")
 	vis_on_scrn.screen_exited.connect(queue_free)
 
 func _physics_process(delta: float) -> void:
@@ -21,16 +20,11 @@ func _physics_process(delta: float) -> void:
 	
 func handle_bullet_collision(collision : KinematicCollision2D) -> void:
 	var collider = collision.get_collider()
-	if collider is TileMapLayer and collider.is_in_group("destructible"):
-		# 1. Precision math to get the tile inside the wall
+	if collider is ExtendedTileMapLayer and collider.is_in_group("destructible"):
 		var hit_pos = collision.get_position() - collision.get_normal()
-		
-		# 2. Convert to map coordinates
 		var local_pos = collider.to_local(hit_pos)
 		var tile_coords = collider.local_to_map(local_pos)
-		
-		# 3. Destroy the tile
-		collider.set_cell(tile_coords, -1)
+		collider.overloaded_set_cell(tile_coords, -1)
 	queue_free()
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
