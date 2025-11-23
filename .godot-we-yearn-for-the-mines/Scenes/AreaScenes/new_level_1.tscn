@@ -28,18 +28,12 @@ metadata/_custom_type_script = "uid://dcdnuawrdsosq"
 
 [node name="NewLevelTemplate" parent="." instance=ExtResource("1_rggcp")]
 
-[node name="PCamAreaManager" parent="NewLevelTemplate" index="3" node_paths=PackedStringArray("trigg_cam_pairs")]
+[node name="PCamAreaManager" parent="NewLevelTemplate" index="4" node_paths=PackedStringArray("trigg_cam_pairs")]
 trigg_cam_pairs = {
 NodePath("TrigArea1"): SubResource("Resource_y22gh"),
 NodePath("TrigArea2"): SubResource("Resource_ijiji"),
 NodePath("TrigArea3"): SubResource("Resource_12uuq")
 }
-
-[node name="HBoxContainer" parent="NewLevelTemplate/PlayerNode/HealthBar" index="0"]
-offset_left = 34.0
-offset_top = 29.0
-offset_right = 286.0
-offset_bottom = 69.0
 
 [node name="Enemy" parent="." instance=ExtResource("3_6vppy")]
 position = Vector2(212, 132)
@@ -80,9 +74,9 @@ frame = 1
 frame_progress = 0.025711585
 
 [editable path="NewLevelTemplate"]
+[editable path="NewLevelTemplate/PlayerNode"]
 [editable path="NewLevelTemplate/PCamManager"]
 [editable path="NewLevelTemplate/PCamAreaManager"]
 [editable path="NewLevelTemplate/PCamAreaManager/TrigArea1"]
 [editable path="NewLevelTemplate/PCamAreaManager/TrigArea2"]
 [editable path="NewLevelTemplate/PCamAreaManager/TrigArea3"]
-[editable path="NewLevelTemplate/PlayerNode"]
