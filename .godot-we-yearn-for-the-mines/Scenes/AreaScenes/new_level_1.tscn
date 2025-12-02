@@ -28,6 +28,12 @@ metadata/_custom_type_script = "uid://dcdnuawrdsosq"
 
 [node name="NewLevelTemplate" parent="." instance=ExtResource("1_rggcp")]
 
+[node name="HBoxContainer" parent="NewLevelTemplate/PlayerNode/HealthBar" index="0"]
+offset_left = 34.0
+offset_top = 29.0
+offset_right = 286.0
+offset_bottom = 69.0
+
 [node name="PCamAreaManager" parent="NewLevelTemplate" index="4" node_paths=PackedStringArray("trigg_cam_pairs")]
 trigg_cam_pairs = {
 NodePath("TrigArea1"): SubResource("Resource_y22gh"),

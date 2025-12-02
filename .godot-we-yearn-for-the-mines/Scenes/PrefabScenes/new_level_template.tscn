@@ -18,9 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://cni0n3ers6qgu" path="res://ImageAssets/Cave Platformer Tileset/Enviroment sprite sheets/bg_objects.png" id="10_l8wun"]
 [ext_resource type="Texture2D" uid="uid://ba4p1rkjisa2v" path="res://ImageAssets/Cave Platformer Tileset/Enviroment sprite sheets/objects_misc.png" id="11_y22gh"]
 [ext_resource type="Texture2D" uid="uid://bboirf5n5ejgw" path="res://ImageAssets/Cave Platformer Tileset/Enviroment sprite sheets/bg_cave_blueish_other.png" id="12_ijiji"]
-[ext_resource type="Script" uid="uid://dyrv3x6rqpdek" path="res://Scripts/tile_map_layers_manager.gd" id="12_qfx2b"]
+[ext_resource type="Script" path="res://Scripts/tile_map_layers_manager.gd" id="12_qfx2b"]
 [ext_resource type="PackedScene" uid="uid://cjeewdlqa2w3p" path="res://Scenes/PrefabScenes/player_class.tscn" id="13_4c7o6"]
-[ext_resource type="Script" uid="uid://dcpeba2056c7s" path="res://Scripts/tile_map_layer_pair.gd" id="13_x40x7"]
+[ext_resource type="Script" path="res://Scripts/tile_map_layer_pair.gd" id="13_x40x7"]
 [ext_resource type="Texture2D" uid="uid://cs718ydkv068" path="res://ImageAssets/Cave Platformer Tileset/Enviroment sprite sheets/cracked_cave_tileset.png" id="19_12uuq"]
 [ext_resource type="Texture2D" uid="uid://cfj7i7xlnv3v6" path="res://ImageAssets/Warped Caves/Artwork/Environment/background.png" id="19_y22gh"]
 [ext_resource type="PackedScene" uid="uid://b4lt23dduroy1" path="res://Scenes/PrefabScenes/extended_tile_map_layer.tscn" id="22_7ewck"]
@@ -1828,6 +1828,12 @@ centered = false
 [node name="PlayerNode" parent="." instance=ExtResource("13_4c7o6")]
 position = Vector2(59, 122)
 
+[node name="HBoxContainer" parent="PlayerNode/HealthBar" index="0"]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 252.0
+offset_bottom = 40.0
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(160, 100)
 zoom = Vector2(5, 5)
@@ -1982,7 +1988,7 @@ tile_set = SubResource("TileSet_wq3qs")
 tile_set = SubResource("TileSet_4i5v0")
 
 [node name="ExtendedTileMapLayer" parent="TileMapLayersManager/DynamicTileMapLayers" instance=ExtResource("22_7ewck")]
-tile_map_data = PackedByteArray("AAAMAAoACAABAAQAAAAMAAkACAABAAQAAAAUAAUABAAEAAEAAAAVAAUABAAFAAEAAAAUAAYABAAEAAIAAAAVAAYABAAFAAIAAAA=")
+tile_map_data = PackedByteArray("AAAUAAUABAAEAAEAAAAVAAUABAAFAAEAAAAUAAYABAAEAAIAAAAVAAYABAAFAAIAAAA=")
 collision_enabled = false
 
 [node name="DestructibleCollision2" parent="TileMapLayersManager/DynamicTileMapLayers" groups=["destructible"] instance=ExtResource("22_7ewck")]
