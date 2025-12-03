@@ -1,19 +1,24 @@
 extends CharacterBody2D
 
 @onready var vis_on_scrn : VisibleOnScreenEnabler2D = $VisibleOnScreenEnabler2D
+@onready var sprite : Sprite2D = $Sprite2D
 
 const SPEED : int = 600
 var _dir : Vector2 = Vector2(1,0)
+const default_dir : Vector2 = Vector2(1, 0)
 var direction: Vector2:
 	get:
 		return _dir.normalized()
 	set(value):
+		print_debug(default_dir.angle_to(value))
+		set_global_rotation(default_dir.angle_to(value))
 		_dir = value
 		
 func _ready() -> void:
 	vis_on_scrn.screen_exited.connect(queue_free)
 
 func _physics_process(delta: float) -> void:
+	
 	var collision : KinematicCollision2D = move_and_collide(direction * SPEED * delta)
 	if collision:
 		handle_bullet_collision(collision)
