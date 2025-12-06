@@ -227,8 +227,7 @@ position = Vector2(0, -12)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1a362")
-animation = &"idle"
-flip_h = true
+animation = &"crouch"
 
 [node name="RightMarker2D" type="Marker2D" parent="."]
 position = Vector2(15, -3)
@@ -247,12 +246,14 @@ shape = SubResource("RectangleShape2D_ppiq0")
 disabled = true
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
-position = Vector2(6, 0)
-target_position = Vector2(0, -15)
+position = Vector2(9, 20)
+target_position = Vector2(0, -35)
+collision_mask = 72
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
-position = Vector2(-7, 0)
-target_position = Vector2(0, -15)
+position = Vector2(-7, 20)
+target_position = Vector2(0, -35)
+collision_mask = 72
 
 [node name="LeftMarker2D" type="Marker2D" parent="."]
 position = Vector2(-16, -3)
@@ -260,6 +261,7 @@ position = Vector2(-16, -3)
 [node name="HealthBar" type="CanvasLayer" parent="."]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HealthBar"]
+visible = false
 offset_left = 34.0
 offset_top = 29.0
 offset_right = 286.0
@@ -326,6 +328,12 @@ offset_right = 605.0
 offset_bottom = 61.0
 theme_override_fonts/font = ExtResource("43_3enqm")
 theme_override_font_sizes/font_size = 49
+
+[node name="LeftMarker2DCrouching" type="Marker2D" parent="."]
+position = Vector2(-17, 10)
+
+[node name="RightMarker2DCrouching" type="Marker2D" parent="."]
+position = Vector2(17, 10)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

@@ -119,7 +119,7 @@ func check_weapon_equipped():
 		weapon_equipped = !weapon_equipped
 		
 func check_crouching():
-	if Input.is_action_pressed("crouch") or raycast_left.is_colliding():
+	if Input.is_action_pressed("crouch") or raycast_left.is_colliding() or raycast_right.is_colliding():
 		is_crouching = true
 		crouching_collision_shape.disabled = false
 		standing_collision_shape.disabled = true
@@ -131,14 +131,32 @@ func check_crouching():
 func shoot():
 	if weapon_equipped and Input.is_action_just_pressed('shoot'):
 		var b = bullet.instantiate()
-		b.global_position = $LeftMarker2D.global_position if animated_sprite.flip_h else $RightMarker2D.global_position
+		if animated_sprite.flip_h:
+			if is_crouching:
+				b.global_position = $LeftMarker2DCrouching.global_position
+			else:
+				b.global_position = $LeftMarker2D.global_position
+		else:
+			if is_crouching:
+				b.global_position = $RightMarker2DCrouching.global_position
+			else:
+				b.global_position = $RightMarker2D.global_position
 		b.direction = -1 if animated_sprite.flip_h else 1
 		get_parent().add_child(b)
 		
 func experimental_shoot():
-	if Input.is_action_just_pressed("right_click"):
+	if weapon_equipped and Input.is_action_just_pressed("right_click"):
 		var b = newbullet.instantiate()
-		b.global_position = $LeftMarker2D.global_position if animated_sprite.flip_h else $RightMarker2D.global_position
+		if animated_sprite.flip_h:
+			if is_crouching:
+				b.global_position = $LeftMarker2DCrouching.global_position
+			else:
+				b.global_position = $LeftMarker2D.global_position
+		else:
+			if is_crouching:
+				b.global_position = $RightMarker2DCrouching.global_position
+			else:
+				b.global_position = $RightMarker2D.global_position
 		b.direction = Vector2(-1, 0) if animated_sprite.flip_h else Vector2(1,0)
 		add_sibling(b)
 

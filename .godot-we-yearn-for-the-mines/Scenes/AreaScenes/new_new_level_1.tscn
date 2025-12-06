@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://b5vj8yj6prgus"]
+[gd_scene load_steps=25 format=4 uid="uid://b5vj8yj6prgus"]
 
 [ext_resource type="PackedScene" uid="uid://bwc0jh3nujgue" path="res://Scenes/PrefabScenes/new_level_template.tscn" id="1_rggcp"]
 [ext_resource type="Script" uid="uid://dcdnuawrdsosq" path="res://Scripts/camera_pair.gd" id="2_uj4va"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://cfofxo4v26iv0" path="res://ImageAssets/Warped Caves/Artwork/Environment/walls-tileset-sliced.png" id="8_oevxx"]
 [ext_resource type="Texture2D" uid="uid://2au7fqncpa7s" path="res://ImageAssets/Cave Platformer Tileset/Enviroment sprite sheets/watertile.png" id="9_rfrhu"]
 [ext_resource type="Texture2D" uid="uid://bq6w6kwlhdypj" path="res://ImageAssets/Cave Platformer Tileset/Enviroment sprite sheets/objects_misc_animated.png" id="10_b3lns"]
+[ext_resource type="PackedScene" uid="uid://b2grh3fphp41b" path="res://Scenes/PrefabScenes/moondust.tscn" id="11_faqdy"]
+[ext_resource type="PackedScene" uid="uid://cs3tghqdqemj2" path="res://Scenes/PrefabScenes/crab_enemy.tscn" id="13_0g0nw"]
 
 [sub_resource type="Resource" id="Resource_y22gh"]
 script = ExtResource("2_uj4va")
@@ -923,6 +925,12 @@ repeat_size = Vector2(360, 264)
 scroll_scale = Vector2(1.05, 1)
 repeat_size = Vector2(480, 276)
 
+[node name="HBoxContainer" parent="NewLevelTemplate/PlayerNode/HealthBar" index="0"]
+offset_left = 36.0
+offset_top = 35.0
+offset_right = 288.0
+offset_bottom = 75.0
+
 [node name="PCam1" parent="NewLevelTemplate/PCamManager" index="1"]
 dead_zone_height = 0.2
 
@@ -977,6 +985,31 @@ tile_map_data = PackedByteArray("AAAcAAIAAAAEAA4AAAAcAAMAAAAEAA4AAAAcAAQAAAAEAA4
 [node name="DestructibleCollision3" parent="NewLevelTemplate/TileMapLayersManager/DynamicTileMapLayers" index="3" groups=["destructible"] instance=ExtResource("3_hk1tr")]
 tile_map_data = PackedByteArray("AAAbAAIAAAAHAAUAAAAbAAMAAAAHAAUAAAAbAAQAAAAHAAUAAAAbAAUAAAAHAAUAAAA=")
 tile_set = SubResource("TileSet_5yaje")
+
+[node name="Moondusts" type="Node" parent="NewLevelTemplate"]
+
+[node name="Moondust" parent="NewLevelTemplate/Moondusts" instance=ExtResource("11_faqdy")]
+position = Vector2(286, 160)
+
+[node name="Moondust2" parent="NewLevelTemplate/Moondusts" instance=ExtResource("11_faqdy")]
+position = Vector2(350, 158)
+
+[node name="Moondust3" parent="NewLevelTemplate/Moondusts" instance=ExtResource("11_faqdy")]
+position = Vector2(505, 69)
+
+[node name="Moondust4" parent="NewLevelTemplate/Moondusts" instance=ExtResource("11_faqdy")]
+position = Vector2(967, 301)
+
+[node name="Moondust5" parent="NewLevelTemplate/Moondusts" instance=ExtResource("11_faqdy")]
+position = Vector2(1072, 285)
+
+[node name="OctopusEnemy" parent="." instance=ExtResource("3_6vppy")]
+position = Vector2(375, 291)
+speed = 10.0
+follows_player = true
+
+[node name="CrabEnemy" parent="." instance=ExtResource("13_0g0nw")]
+position = Vector2(452, 162)
 
 [node name="Enemy" parent="." instance=ExtResource("3_6vppy")]
 position = Vector2(246, -132)

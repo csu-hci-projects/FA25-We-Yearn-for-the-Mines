@@ -79,6 +79,7 @@ size = Vector2(30.508598, 28.304821)
 size = Vector2(22.451027, 23.11163)
 
 [node name="CrabEnemy" type="CharacterBody2D" groups=["enemies"]]
+collision_mask = 13
 script = ExtResource("1_osmkf")
 MAX_HITS = 7
 amplitude = 0.0
