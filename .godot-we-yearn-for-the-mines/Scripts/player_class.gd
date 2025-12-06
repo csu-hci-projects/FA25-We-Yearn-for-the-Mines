@@ -166,6 +166,7 @@ func _take_damage():
 		_update_heart_display()
 	if health <= 0:
 		is_dead = true
+		GameManager.moondust = 0
 		print("Player died! rip")
 		await get_tree().create_timer(0.3).timeout
 		queue_free()
@@ -189,5 +190,25 @@ func _physics_process(delta: float) -> void:
 	shoot()
 	experimental_shoot()
 	
+	
+func heal():
+	if Input.is_action_just_pressed("heal"):
+		if health < 5.0 and GameManager.moondust >= 2:
+			$"HealthBar/HealingText".text = str	("+1 Health!")
+			health += 1.0
+			GameManager.moondust -= 2
+		elif health == 5.0:
+			$"HealthBar/HealingText".text = str("Health already full!")
+		else: 
+			$"HealthBar/HealingText".text = str("Not enough moondust!")
+		
+		await get_tree().create_timer(1.0).timeout
+		$"HealthBar/HealingText".text = str("")
+	
 func _process(delta: float):
 	$"HealthBar/MoondustValue".text = str(GameManager.moondust)
+	heal()
+
+
+func _on_button_pressed() -> void:
+	get_tree().quit()
