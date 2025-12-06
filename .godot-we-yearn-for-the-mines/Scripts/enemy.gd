@@ -57,6 +57,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		num_hits += 1
 		if num_hits >= MAX_HITS:
 			is_dead = true
+			GameManager.play_enemy_death_sound()
 			await get_tree().create_timer(0.3).timeout
 			queue_free()
 			

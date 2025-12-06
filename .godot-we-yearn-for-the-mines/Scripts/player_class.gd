@@ -143,6 +143,7 @@ func shoot():
 				b.global_position = $RightMarker2D.global_position
 		b.direction = -1 if animated_sprite.flip_h else 1
 		get_parent().add_child(b)
+		GameManager.play_pew_pew()
 		
 func experimental_shoot():
 	if weapon_equipped and Input.is_action_just_pressed("right_click"):
@@ -159,6 +160,7 @@ func experimental_shoot():
 				b.global_position = $RightMarker2D.global_position
 		b.direction = Vector2(-1, 0) if animated_sprite.flip_h else Vector2(1,0)
 		add_sibling(b)
+		GameManager.play_pew_pew_terrain()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("enemies"):
@@ -181,8 +183,10 @@ func _take_damage():
 	modulate = Color(1.0, 1.0, 1.0, 1.0)
 	if health > 0:
 		health -= current_damage_mult
+		GameManager.play_player_damage()
 		_update_heart_display()
 	if health <= 0:
+		GameManager.play_oof_sound()
 		is_dead = true
 		GameManager.moondust = 0
 		print("Player died! rip")
@@ -212,8 +216,10 @@ func _physics_process(delta: float) -> void:
 func heal():
 	if Input.is_action_just_pressed("heal"):
 		if health < 5.0 and GameManager.moondust >= 2:
+			GameManager.play_healing_sound()
 			$"HealthBar/HealingText".text = str	("+1 Health!")
 			health += 1.0
+			_update_heart_display()
 			GameManager.moondust -= 2
 		elif health == 5.0:
 			$"HealthBar/HealingText".text = str("Health already full!")

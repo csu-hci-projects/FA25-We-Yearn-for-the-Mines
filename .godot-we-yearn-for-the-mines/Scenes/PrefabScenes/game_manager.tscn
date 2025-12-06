@@ -1,6 +1,34 @@
-[gd_scene load_steps=2 format=3 uid="uid://g560xqewquex"]
+[gd_scene load_steps=9 format=3 uid="uid://g560xqewquex"]
 
 [ext_resource type="Script" uid="uid://svk1004b3gij" path="res://Scripts/game_manager.gd" id="1_nm3jh"]
+[ext_resource type="AudioStream" uid="uid://d15o01kw2mhye" path="res://Sounds/enemy_death.wav" id="2_oforn"]
+[ext_resource type="AudioStream" uid="uid://ctug1drwx6y6e" path="res://Sounds/moondust_pickup.wav" id="3_m7xtd"]
+[ext_resource type="AudioStream" uid="uid://bpf8q2mf21k1o" path="res://Sounds/LASER PEW PEW.mp3" id="4_28vek"]
+[ext_resource type="AudioStream" uid="uid://bv16d4fb83hvr" path="res://Sounds/laser-zap-90575.mp3" id="5_f3e4c"]
+[ext_resource type="AudioStream" uid="uid://bibmjaqrva583" path="res://Sounds/roblox-death-sound-effect.mp3" id="6_umvmq"]
+[ext_resource type="AudioStream" uid="uid://ckfc6p31q3w7o" path="res://Sounds/snd_mtt_hit.wav" id="7_saahs"]
+[ext_resource type="AudioStream" uid="uid://crwolvrxmlqdk" path="res://Sounds/angels-singing.mp3" id="8_dtihx"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_nm3jh")
+
+[node name="EnemyDeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_oforn")
+
+[node name="MoondustPickupSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_m7xtd")
+
+[node name="PewPewSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_28vek")
+
+[node name="PewPewTerrainSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_f3e4c")
+
+[node name="OofSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_umvmq")
+
+[node name="PlayerDamageSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_saahs")
+
+[node name="HealingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_dtihx")

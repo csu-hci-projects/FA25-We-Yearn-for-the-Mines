@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2grh3fphp41b"]
+[gd_scene load_steps=10 format=3 uid="uid://b2grh3fphp41b"]
 
 [ext_resource type="Texture2D" uid="uid://3ojcmwujgxhp" path="res://ImageAssets/Misc/spr_coin_azu_anmation.png" id="1_terjp"]
 [ext_resource type="Script" uid="uid://dy2nfilcmnsqn" path="res://Scripts/moondust.gd" id="2_terjp"]
+[ext_resource type="AudioStream" uid="uid://ctug1drwx6y6e" path="res://Sounds/moondust_pickup.wav" id="3_t6cga"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t6cga"]
 atlas = ExtResource("1_terjp")
@@ -51,5 +52,8 @@ script = ExtResource("2_terjp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_rx0hb")
+
+[node name="MoondustPickupSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_t6cga")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
