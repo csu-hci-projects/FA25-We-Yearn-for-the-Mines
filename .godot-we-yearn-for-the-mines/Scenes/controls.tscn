@@ -1,0 +1,426 @@
+[gd_scene load_steps=30 format=3 uid="uid://dyc0gty23ou2o"]
+
+[ext_resource type="Texture2D" uid="uid://bir21krwi76vj" path="res://ImageAssets/Misc/alienmine2.png" id="1_e8c2f"]
+[ext_resource type="FontFile" uid="uid://bvb5j8ndmgmos" path="res://ImageAssets/Fonts/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Doublespace/Peaberry-Doublespace.otf" id="2_ejwpf"]
+[ext_resource type="Texture2D" uid="uid://xr1rb04twit2" path="res://ImageAssets/Misc/keyboard buttons.png" id="3_ejwpf"]
+[ext_resource type="FontFile" uid="uid://wmu2dgek0uo7" path="res://ImageAssets/Fonts/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.ttf" id="4_m0n3a"]
+[ext_resource type="Script" uid="uid://djj7o87qr6n8d" path="res://Scenes/controls.gd" id="5_q6vtx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejwpf"]
+atlas = ExtResource("3_ejwpf")
+region = Rect2(112, 888, 112, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0n3a"]
+atlas = ExtResource("3_ejwpf")
+region = Rect2(224, 888, 112, 111)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q6vtx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejwpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0n3a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6vtx"]
+atlas = ExtResource("3_ejwpf")
+region = Rect2(560, 111, 112, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4nhr"]
+atlas = ExtResource("3_ejwpf")
+region = Rect2(672, 111, 112, 111)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_21kh3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6vtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4nhr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0kct"]
+atlas = ExtResource("3_ejwpf")
+region = Rect2(784, 888, 112, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwth0"]
+atlas = ExtResource("3_ejwpf")
+region = Rect2(896, 888, 112, 111)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y32fe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0kct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwth0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_miyui"]
+atlas = ExtResource("3_ejwpf")
+region = Rect2(784, 111, 112, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_au1p5"]
+atlas = ExtResource("3_ejwpf")
+region = Rect2(896, 111, 112, 111)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0r50y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_miyui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_au1p5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21kh3"]
+atlas = ExtResource("3_ejwpf")
+region = Rect2(1002, 1679, 421, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y32fe"]
+atlas = ExtResource("3_ejwpf")
+region = Rect2(1423, 1679, 421, 110)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_miyui"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21kh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y32fe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0r50y"]
+atlas = ExtResource("3_ejwpf")
+region = Rect2(112, 111, 112, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d54eo"]
+atlas = ExtResource("3_ejwpf")
+region = Rect2(224, 111, 112, 111)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xai40"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0r50y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d54eo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xai40"]
+atlas = ExtResource("3_ejwpf")
+region = Rect2(1680, 999, 112, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sced2"]
+atlas = ExtResource("3_ejwpf")
+region = Rect2(1792, 999, 112, 111)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_riuus"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xai40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sced2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ib3o8"]
+atlas = ExtResource("3_ejwpf")
+region = Rect2(772, 1443, 159, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dvc3"]
+atlas = ExtResource("3_ejwpf")
+region = Rect2(931, 1443, 159, 111)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4t5h4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ib3o8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dvc3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Controls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -11.0
+offset_right = 1612.0
+offset_bottom = 1013.0
+rotation = -0.0031923188
+texture = ExtResource("1_e8c2f")
+
+[node name="Controls" type="Label" parent="."]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 27.0
+offset_right = 1042.0
+offset_bottom = 129.0
+theme_override_fonts/font = ExtResource("2_ejwpf")
+theme_override_font_sizes/font_size = 90
+text = "Controls"
+
+[node name="MoveLeft" type="Label" parent="."]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 144.0
+offset_right = 842.0
+offset_bottom = 208.0
+theme_override_fonts/font = ExtResource("2_ejwpf")
+theme_override_font_sizes/font_size = 60
+text = "Move Left"
+
+[node name="or" type="Label" parent="MoveLeft"]
+layout_mode = 0
+offset_left = 618.0
+offset_top = 12.5
+offset_right = 683.0
+offset_bottom = 60.5
+theme_override_fonts/font = ExtResource("2_ejwpf")
+theme_override_font_sizes/font_size = 47
+text = "or"
+
+[node name="A" type="TextureRect" parent="MoveLeft"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = -8.0
+offset_right = 582.0
+offset_bottom = 53.0
+
+[node name="A_Animation" type="AnimatedSprite2D" parent="MoveLeft/A"]
+position = Vector2(61, 31.499992)
+scale = Vector2(0.7678573, 0.78378403)
+sprite_frames = SubResource("SpriteFrames_q6vtx")
+autoplay = "default"
+frame_progress = 0.77075803
+
+[node name="LeftArrow" type="TextureRect" parent="MoveLeft"]
+layout_mode = 0
+offset_left = 659.0
+offset_top = 16.5
+offset_right = 699.0
+offset_bottom = 56.5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MoveLeft/LeftArrow"]
+position = Vector2(65.999985, 16.500004)
+scale = Vector2(0.7500008, 0.7545043)
+sprite_frames = SubResource("SpriteFrames_21kh3")
+autoplay = "default"
+frame_progress = 0.22384183
+
+[node name="MoveRight" type="Label" parent="."]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 272.0
+offset_right = 840.0
+offset_bottom = 336.0
+theme_override_fonts/font = ExtResource("2_ejwpf")
+theme_override_font_sizes/font_size = 60
+text = "Move Right"
+
+[node name="B" type="TextureRect" parent="MoveRight"]
+layout_mode = 0
+offset_left = 461.0
+offset_top = 13.0
+offset_right = 501.0
+offset_bottom = 53.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MoveRight/B"]
+position = Vector2(106.99999, 8.125008)
+scale = Vector2(0.76785713, 0.83108103)
+sprite_frames = SubResource("SpriteFrames_y32fe")
+autoplay = "default"
+frame_progress = 0.32863763
+
+[node name="or" type="Label" parent="MoveRight"]
+layout_mode = 0
+offset_left = 612.0
+offset_top = 0.125
+offset_right = 677.0
+offset_bottom = 48.125
+theme_override_fonts/font = ExtResource("2_ejwpf")
+theme_override_font_sizes/font_size = 47
+text = "or"
+
+[node name="RightArrow" type="TextureRect" parent="MoveRight"]
+layout_mode = 0
+offset_left = 619.0
+offset_top = 11.0
+offset_right = 659.0
+offset_bottom = 51.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MoveRight/RightArrow"]
+position = Vector2(108.999985, 13.000004)
+scale = Vector2(0.78571475, 0.82657653)
+sprite_frames = SubResource("SpriteFrames_0r50y")
+autoplay = "default"
+frame_progress = 0.16198172
+
+[node name="Jump" type="Label" parent="."]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 400.0
+offset_right = 596.0
+offset_bottom = 460.0
+theme_override_fonts/font = ExtResource("2_ejwpf")
+theme_override_font_sizes/font_size = 60
+text = "Jump"
+
+[node name="Space" type="TextureRect" parent="Jump"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Jump/Space"]
+position = Vector2(472, 32)
+scale = Vector2(0.81057006, 0.6454545)
+sprite_frames = SubResource("SpriteFrames_miyui")
+autoplay = "default"
+frame_progress = 0.12158824
+
+[node name="or" type="Label" parent="Jump"]
+layout_mode = 0
+offset_left = 624.0
+offset_right = 689.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("2_ejwpf")
+theme_override_font_sizes/font_size = 47
+text = "or"
+
+[node name="UpArrow" type="TextureRect" parent="Jump"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Jump/UpArrow"]
+position = Vector2(736.00006, 24)
+scale = Vector2(0.71428573, 0.7162162)
+sprite_frames = SubResource("SpriteFrames_xai40")
+autoplay = "default"
+frame_progress = 0.58781236
+
+[node name="ToggleShooting" type="Label" parent="."]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 528.0
+offset_right = 1060.0
+offset_bottom = 630.0
+theme_override_fonts/font = ExtResource("2_ejwpf")
+theme_override_font_sizes/font_size = 60
+text = "Toggle Gun Equip"
+
+[node name="S" type="TextureRect" parent="ToggleShooting"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ToggleShooting/S"]
+position = Vector2(728, 23.875002)
+scale = Vector2(0.71428585, 0.71846855)
+sprite_frames = SubResource("SpriteFrames_riuus")
+autoplay = "default"
+frame_progress = 0.8770125
+
+[node name="ShootEnemies" type="Label" parent="."]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 632.0
+offset_right = 1226.0
+offset_bottom = 688.0
+theme_override_fonts/font = ExtResource("2_ejwpf")
+theme_override_font_sizes/font_size = 39
+text = "Shoot Enemies:      Left Click"
+
+[node name="DestroyTerrain" type="Label" parent="."]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 696.0
+offset_right = 1338.0
+offset_bottom = 752.0
+theme_override_fonts/font = ExtResource("2_ejwpf")
+theme_override_font_sizes/font_size = 39
+text = "Destroy Terrain:  Right Click"
+
+[node name="Heal" type="Label" parent="."]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 784.0
+offset_right = 1056.0
+offset_bottom = 886.0
+theme_override_fonts/font = ExtResource("2_ejwpf")
+theme_override_font_sizes/font_size = 60
+text = "Heal w/ Moondust"
+
+[node name="Tab" type="TextureRect" parent="Heal"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Heal/Tab"]
+position = Vector2(736, 24)
+scale = Vector2(0.7515723, 0.7162162)
+sprite_frames = SubResource("SpriteFrames_4t5h4")
+autoplay = "default"
+frame_progress = 0.9820425
+
+[node name="LetsGoButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 674.0
+offset_top = 882.0
+offset_right = 956.0
+offset_bottom = 981.0
+theme_override_fonts/font = ExtResource("4_m0n3a")
+theme_override_font_sizes/font_size = 49
+text = "Let's go!"
+script = ExtResource("5_q6vtx")
+
+[connection signal="pressed" from="LetsGoButton" to="LetsGoButton" method="_on_pressed"]

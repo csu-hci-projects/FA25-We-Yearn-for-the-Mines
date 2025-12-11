@@ -1,0 +1,83 @@
+[gd_scene load_steps=14 format=3 uid="uid://rbaqo5aykddw"]
+
+[ext_resource type="Script" uid="uid://bbw74lx0yn3ol" path="res://Scripts/enemy.gd" id="1_e36er"]
+[ext_resource type="Texture2D" uid="uid://crylk5da8oquw" path="res://ImageAssets/Warped Caves/Artwork/Sprites/Fx/enemy-death/enemy-death-1.png" id="2_a2b58"]
+[ext_resource type="Texture2D" uid="uid://bbpf5y847bhmm" path="res://ImageAssets/Warped Caves/Artwork/Sprites/Fx/enemy-death/enemy-death-2.png" id="3_scnvq"]
+[ext_resource type="Texture2D" uid="uid://divd1vgtwckv7" path="res://ImageAssets/Warped Caves/Artwork/Sprites/Fx/enemy-death/enemy-death-3.png" id="4_xc033"]
+[ext_resource type="Texture2D" uid="uid://dirxtsm0anyd5" path="res://ImageAssets/Warped Caves/Artwork/Sprites/Fx/enemy-death/enemy-death-4.png" id="5_00qdd"]
+[ext_resource type="Texture2D" uid="uid://t6o3gdwpdj0s" path="res://ImageAssets/Warped Caves/Artwork/Sprites/Fx/enemy-death/enemy-death-5.png" id="6_2war7"]
+[ext_resource type="Texture2D" uid="uid://ciwyvipetut7l" path="res://ImageAssets/Warped Caves/Artwork/Sprites/enemies/octopus/octopus-1.png" id="7_3ub5g"]
+[ext_resource type="Texture2D" uid="uid://dmw3j6de2jfvn" path="res://ImageAssets/Warped Caves/Artwork/Sprites/enemies/octopus/octopus-2.png" id="8_scfgx"]
+[ext_resource type="Texture2D" uid="uid://dn7er83jlr6gt" path="res://ImageAssets/Warped Caves/Artwork/Sprites/enemies/octopus/octopus-3.png" id="9_o6ce6"]
+[ext_resource type="Texture2D" uid="uid://dp4uax81rbpny" path="res://ImageAssets/Warped Caves/Artwork/Sprites/enemies/octopus/octopus-4.png" id="10_vogpc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3y7cw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_a2b58")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_scnvq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xc033")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_00qdd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2war7")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_3ub5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_scfgx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_o6ce6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vogpc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4dqd"]
+size = Vector2(21.377686, 29.275883)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ls1j3"]
+size = Vector2(18.608358, 22.056366)
+
+[node name="OctopusEnemy" type="CharacterBody2D" groups=["enemies"]]
+scale = Vector2(1.2, 1.2)
+collision_mask = 13
+script = ExtResource("1_e36er")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.2683258, -3.971218)
+sprite_frames = SubResource("SpriteFrames_3y7cw")
+animation = &"idle"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.84814984, -4.225548)
+shape = SubResource("RectangleShape2D_x4dqd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.59045506, -5.779785)
+shape = SubResource("RectangleShape2D_ls1j3")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

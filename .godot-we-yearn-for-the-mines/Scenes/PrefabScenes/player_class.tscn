@@ -1,0 +1,339 @@
+[gd_scene load_steps=49 format=3 uid="uid://cjeewdlqa2w3p"]
+
+[ext_resource type="Script" uid="uid://ca8cdl4uywiq0" path="res://Scripts/player_class.gd" id="1_fe025"]
+[ext_resource type="Texture2D" uid="uid://d2dlp1xch8nmw" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-idle/player-idle-1.png" id="1_mxhop"]
+[ext_resource type="PackedScene" uid="uid://dj6t1sqkxahan" path="res://Scenes/PrefabScenes/rushing_follower.tscn" id="3_t5uaa"]
+[ext_resource type="Texture2D" uid="uid://u1iwyuaxg8e8" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-duck/player-duck.png" id="4_a1oxp"]
+[ext_resource type="Texture2D" uid="uid://crylk5da8oquw" path="res://ImageAssets/Warped Caves/Artwork/Sprites/Fx/enemy-death/enemy-death-1.png" id="5_hs80o"]
+[ext_resource type="Texture2D" uid="uid://bbpf5y847bhmm" path="res://ImageAssets/Warped Caves/Artwork/Sprites/Fx/enemy-death/enemy-death-2.png" id="6_3enqm"]
+[ext_resource type="Texture2D" uid="uid://bhf67atrtndwt" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-idle/player-idle-2.png" id="6_ppiq0"]
+[ext_resource type="Texture2D" uid="uid://cfrpcytsm2qxk" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-idle/player-idle-3.png" id="7_l54eh"]
+[ext_resource type="Texture2D" uid="uid://divd1vgtwckv7" path="res://ImageAssets/Warped Caves/Artwork/Sprites/Fx/enemy-death/enemy-death-3.png" id="7_ytj6d"]
+[ext_resource type="Texture2D" uid="uid://dnbo3c6vx4qci" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-idle/player-idle-4.png" id="8_7qygn"]
+[ext_resource type="Texture2D" uid="uid://dirxtsm0anyd5" path="res://ImageAssets/Warped Caves/Artwork/Sprites/Fx/enemy-death/enemy-death-4.png" id="8_y8eri"]
+[ext_resource type="Texture2D" uid="uid://t6o3gdwpdj0s" path="res://ImageAssets/Warped Caves/Artwork/Sprites/Fx/enemy-death/enemy-death-5.png" id="9_m1k24"]
+[ext_resource type="Texture2D" uid="uid://cdohg1h1ycy2x" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-jump/player-jump-1.png" id="9_sjhxd"]
+[ext_resource type="Texture2D" uid="uid://bgdnilxg08b2d" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-jump/player-jump-2.png" id="10_hs80o"]
+[ext_resource type="Texture2D" uid="uid://dwx8h4ffu3p22" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-jump/player-jump-3.png" id="11_3enqm"]
+[ext_resource type="Texture2D" uid="uid://coxnwtlcbsgn7" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-jump/player-jump-4.png" id="12_ytj6d"]
+[ext_resource type="Texture2D" uid="uid://dsih25oljymx1" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-jump/player-jump-5.png" id="13_y8eri"]
+[ext_resource type="Texture2D" uid="uid://brjrbiapn7w4s" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-jump/player-jump-6.png" id="14_m1k24"]
+[ext_resource type="Texture2D" uid="uid://bb7ypl0jfjn4j" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-run/player-run-1.png" id="15_7acn6"]
+[ext_resource type="Texture2D" uid="uid://cdq1jq0sbh5t0" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-run/player-run-2.png" id="16_qis23"]
+[ext_resource type="Texture2D" uid="uid://c7o3t0vyr0cjx" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-run/player-run-3.png" id="17_yudk6"]
+[ext_resource type="Texture2D" uid="uid://k1hhgld2q6ll" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-run/player-run-4.png" id="18_pn61y"]
+[ext_resource type="Texture2D" uid="uid://bep61akq3mpmg" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-run/player-run-5.png" id="19_0lu05"]
+[ext_resource type="Texture2D" uid="uid://dtt3m2uqwgqj1" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-run/player-run-6.png" id="20_e3jdp"]
+[ext_resource type="Texture2D" uid="uid://c6qjsovqkyfil" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-run/player-run-7.png" id="21_q6x0p"]
+[ext_resource type="Texture2D" uid="uid://l26pelqqffwt" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-run/player-run-8.png" id="22_mttaj"]
+[ext_resource type="Texture2D" uid="uid://qfrp76i6gbi3" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-run/player-run-9.png" id="23_fpw6b"]
+[ext_resource type="Texture2D" uid="uid://mujxfb3ttrqj" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-run/player-run-10.png" id="24_k0x4i"]
+[ext_resource type="Texture2D" uid="uid://dd8lt1kliplnj" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-run-shot/player-run-shot-1.png" id="25_67kqw"]
+[ext_resource type="Texture2D" uid="uid://2lo8wq8luw8l" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-run-shot/player-run-shot-2.png" id="26_3ewxh"]
+[ext_resource type="Texture2D" uid="uid://bqjw7c6n7q53b" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-run-shot/player-run-shot-3.png" id="27_1lnv4"]
+[ext_resource type="Texture2D" uid="uid://bx6mhnwwl5ka" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-run-shot/player-run-shot-4.png" id="28_1jee4"]
+[ext_resource type="Texture2D" uid="uid://cwt7bte0b72cm" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-run-shot/player-run-shot-5.png" id="29_hl6fd"]
+[ext_resource type="Texture2D" uid="uid://ddfyb1fuxoe24" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-run-shot/player-run-shot-6.png" id="30_620md"]
+[ext_resource type="Texture2D" uid="uid://d2ynln5sx53t0" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-run-shot/player-run-shot-7.png" id="31_fdlnc"]
+[ext_resource type="Texture2D" uid="uid://bpqt851dqj2j6" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-run-shot/player-run-shot-8.png" id="32_3ajkw"]
+[ext_resource type="Texture2D" uid="uid://c0n0xx6ladg04" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-run-shot/player-run-shot-9.png" id="33_gbkgn"]
+[ext_resource type="Texture2D" uid="uid://c58tiemgjk2od" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-run-shot/player-run-shot-10.png" id="34_lr4df"]
+[ext_resource type="Texture2D" uid="uid://qfhxddjkjvac" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-stand/player-stand-1.png" id="35_w20mb"]
+[ext_resource type="Texture2D" uid="uid://dledjgbg7enwa" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-stand/player-stand-2.png" id="36_ad7gv"]
+[ext_resource type="Texture2D" uid="uid://bq60003k4uau" path="res://ImageAssets/Warped Caves/Artwork/Sprites/player/player-stand/player-stand-3.png" id="37_wb03r"]
+[ext_resource type="PackedScene" uid="uid://to7uuf3jomk0" path="res://Scenes/PrefabScenes/heart.tscn" id="42_hs80o"]
+[ext_resource type="FontFile" uid="uid://wmu2dgek0uo7" path="res://ImageAssets/Fonts/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.ttf" id="43_3enqm"]
+[ext_resource type="Texture2D" uid="uid://c86c2hs8jk0a5" path="res://ImageAssets/Misc/spr_coin_azu.png" id="44_ytj6d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjhxd"]
+size = Vector2(16, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1a362"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_a1oxp")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_hs80o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3enqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ytj6d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_y8eri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_m1k24")
+}],
+"loop": true,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mxhop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ppiq0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_l54eh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7qygn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_sjhxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_hs80o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_3enqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ytj6d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_y8eri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_m1k24")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 13.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_7acn6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_qis23")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_yudk6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_pn61y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_0lu05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_e3jdp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_q6x0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_mttaj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_fpw6b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_k0x4i")
+}],
+"loop": true,
+"name": &"run",
+"speed": 13.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_67kqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_3ewxh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_1lnv4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_1jee4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_hl6fd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_620md")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_fdlnc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_3ajkw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_gbkgn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_lr4df")
+}],
+"loop": true,
+"name": &"run-shoot",
+"speed": 13.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_w20mb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_ad7gv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_wb03r")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 13.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1oxp"]
+size = Vector2(47, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppiq0"]
+size = Vector2(17, 24)
+
+[node name="PlayerNode" type="CharacterBody2D" groups=["player"]]
+collision_mask = 13
+script = ExtResource("1_fe025")
+
+[node name="StandingCollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(1, 4.5)
+shape = SubResource("RectangleShape2D_sjhxd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="FollowCenter" type="Node2D" parent="."]
+visible = false
+position = Vector2(0, -12)
+
+[node name="RushingFollower" parent="FollowCenter" instance=ExtResource("3_t5uaa")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1a362")
+animation = &"crouch"
+
+[node name="RightMarker2D" type="Marker2D" parent="."]
+position = Vector2(15, -3)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_a1oxp")
+
+[node name="CrouchingCollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 12)
+shape = SubResource("RectangleShape2D_ppiq0")
+disabled = true
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(9, 20)
+target_position = Vector2(0, -35)
+collision_mask = 72
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(-7, 20)
+target_position = Vector2(0, -35)
+collision_mask = 72
+
+[node name="LeftMarker2D" type="Marker2D" parent="."]
+position = Vector2(-16, -3)
+
+[node name="HealthBar" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HealthBar"]
+offset_left = 34.0
+offset_top = 29.0
+offset_right = 286.0
+offset_bottom = 69.0
+
+[node name="heart" type="TextureRect" parent="HealthBar/HBoxContainer"]
+custom_minimum_size = Vector2(59, 0)
+layout_mode = 2
+
+[node name="Heart" parent="HealthBar/HBoxContainer/heart" instance=ExtResource("42_hs80o")]
+
+[node name="heart3" type="TextureRect" parent="HealthBar/HBoxContainer"]
+custom_minimum_size = Vector2(59, 0)
+layout_mode = 2
+
+[node name="Heart" parent="HealthBar/HBoxContainer/heart3" instance=ExtResource("42_hs80o")]
+
+[node name="heart4" type="TextureRect" parent="HealthBar/HBoxContainer"]
+custom_minimum_size = Vector2(59, 0)
+layout_mode = 2
+
+[node name="Heart" parent="HealthBar/HBoxContainer/heart4" instance=ExtResource("42_hs80o")]
+
+[node name="heart5" type="TextureRect" parent="HealthBar/HBoxContainer"]
+custom_minimum_size = Vector2(59, 0)
+layout_mode = 2
+
+[node name="Heart" parent="HealthBar/HBoxContainer/heart5" instance=ExtResource("42_hs80o")]
+
+[node name="heart2" type="TextureRect" parent="HealthBar/HBoxContainer"]
+layout_mode = 2
+
+[node name="Heart" parent="HealthBar/HBoxContainer/heart2" instance=ExtResource("42_hs80o")]
+
+[node name="MoondustValue" type="Label" parent="HealthBar"]
+offset_left = 1340.0
+offset_top = 18.0
+offset_right = 1467.0
+offset_bottom = 68.0
+theme_override_fonts/font = ExtResource("43_3enqm")
+theme_override_font_sizes/font_size = 49
+text = "0"
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="HealthBar"]
+offset_left = 1467.0
+offset_top = 5.0
+offset_right = 1525.0
+offset_bottom = 66.0
+texture = ExtResource("44_ytj6d")
+
+[node name="Button" type="Button" parent="HealthBar"]
+offset_left = 1537.0
+offset_top = 1.0
+offset_right = 1599.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 42
+text = "X"
+
+[node name="HealingText" type="Label" parent="HealthBar"]
+offset_left = 351.0
+offset_top = 11.0
+offset_right = 605.0
+offset_bottom = 61.0
+theme_override_fonts/font = ExtResource("43_3enqm")
+theme_override_font_sizes/font_size = 49
+
+[node name="LeftMarker2DCrouching" type="Marker2D" parent="."]
+position = Vector2(-17, 10)
+
+[node name="RightMarker2DCrouching" type="Marker2D" parent="."]
+position = Vector2(17, 10)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="pressed" from="HealthBar/Button" to="." method="_on_button_pressed"]

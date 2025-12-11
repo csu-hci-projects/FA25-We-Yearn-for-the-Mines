@@ -1,0 +1,88 @@
+[gd_scene load_steps=9 format=3 uid="uid://cespgexkxuysi"]
+
+[ext_resource type="PackedScene" uid="uid://bwc0jh3nujgue" path="res://Scenes/PrefabScenes/new_level_template.tscn" id="1_rggcp"]
+[ext_resource type="Script" uid="uid://dcdnuawrdsosq" path="res://Scripts/camera_pair.gd" id="2_uj4va"]
+[ext_resource type="PackedScene" uid="uid://rbaqo5aykddw" path="res://Scenes/PrefabScenes/OctopusEnemy.tscn" id="3_6vppy"]
+[ext_resource type="PackedScene" uid="uid://cs3tghqdqemj2" path="res://Scenes/PrefabScenes/crab_enemy.tscn" id="4_frmp2"]
+[ext_resource type="PackedScene" uid="uid://b2grh3fphp41b" path="res://Scenes/PrefabScenes/moondust.tscn" id="5_vuss1"]
+
+[sub_resource type="Resource" id="Resource_y22gh"]
+script = ExtResource("2_uj4va")
+positiveCam = NodePath("../PCamManager/PCam2")
+negativeCam = NodePath("../PCamManager/PCam1")
+metadata/_custom_type_script = "uid://dcdnuawrdsosq"
+
+[sub_resource type="Resource" id="Resource_ijiji"]
+script = ExtResource("2_uj4va")
+positiveCam = NodePath("../PCamManager/PCam3")
+negativeCam = NodePath("../PCamManager/PCam2")
+metadata/_custom_type_script = "uid://dcdnuawrdsosq"
+
+[sub_resource type="Resource" id="Resource_12uuq"]
+script = ExtResource("2_uj4va")
+positiveCam = NodePath("../PCamManager/PCam4")
+negativeCam = NodePath("../PCamManager/PCam2")
+metadata/_custom_type_script = "uid://dcdnuawrdsosq"
+
+[node name="new_level_1" type="Node2D"]
+
+[node name="NewLevelTemplate" parent="." instance=ExtResource("1_rggcp")]
+
+[node name="HBoxContainer" parent="NewLevelTemplate/PlayerNode/HealthBar" index="0"]
+offset_left = 34.0
+offset_top = 29.0
+offset_right = 286.0
+offset_bottom = 69.0
+
+[node name="PCamAreaManager" parent="NewLevelTemplate" index="4" node_paths=PackedStringArray("trigg_cam_pairs")]
+trigg_cam_pairs = {
+NodePath("TrigArea1"): SubResource("Resource_y22gh"),
+NodePath("TrigArea2"): SubResource("Resource_ijiji"),
+NodePath("TrigArea3"): SubResource("Resource_12uuq")
+}
+
+[node name="Enemy" parent="." instance=ExtResource("3_6vppy")]
+position = Vector2(212, 132)
+
+[node name="CrabEnemy" parent="." instance=ExtResource("4_frmp2")]
+position = Vector2(665, 160)
+
+[node name="OctopusFollower" parent="." instance=ExtResource("3_6vppy")]
+position = Vector2(287, 558)
+speed = 30.0
+follows_player = true
+
+[node name="Moondusts" type="Node" parent="."]
+
+[node name="Moondust" parent="Moondusts" instance=ExtResource("5_vuss1")]
+position = Vector2(114, 140)
+frame = 1
+frame_progress = 0.025711585
+
+[node name="Moondust2" parent="Moondusts" instance=ExtResource("5_vuss1")]
+position = Vector2(177, 111)
+frame = 1
+frame_progress = 0.025711585
+
+[node name="Moondust3" parent="Moondusts" instance=ExtResource("5_vuss1")]
+position = Vector2(477, 545)
+frame = 1
+frame_progress = 0.025711585
+
+[node name="Moondust4" parent="Moondusts" instance=ExtResource("5_vuss1")]
+position = Vector2(341, 547)
+frame = 1
+frame_progress = 0.025711585
+
+[node name="Moondust5" parent="Moondusts" instance=ExtResource("5_vuss1")]
+position = Vector2(482, 171)
+frame = 1
+frame_progress = 0.025711585
+
+[editable path="NewLevelTemplate"]
+[editable path="NewLevelTemplate/PlayerNode"]
+[editable path="NewLevelTemplate/PCamManager"]
+[editable path="NewLevelTemplate/PCamAreaManager"]
+[editable path="NewLevelTemplate/PCamAreaManager/TrigArea1"]
+[editable path="NewLevelTemplate/PCamAreaManager/TrigArea2"]
+[editable path="NewLevelTemplate/PCamAreaManager/TrigArea3"]

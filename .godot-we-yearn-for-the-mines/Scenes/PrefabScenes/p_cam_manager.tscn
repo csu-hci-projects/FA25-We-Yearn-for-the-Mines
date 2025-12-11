@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://brbti76k1l1x5"]
+
+[ext_resource type="Script" uid="uid://c78u4lg2lx6tp" path="res://Scripts/p_cam_manager.gd" id="1_5f0ay"]
+
+[node name="PCamManager" type="Node2D"]
+script = ExtResource("1_5f0ay")
